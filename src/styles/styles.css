@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        color-scheme: light dark;
+        accent-color: var(--accentFill);
+        fill: CanvasText;
+    } 
+    body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+        font-optical-sizing: auto;
+        @apply text-body;
+    }
+    p {
+        margin-bottom: 1.5rem;
+    }
+    a {
+        color: var(--accentText);    
+    }
+    a:hover {
+        text-decoration: underline;
+    }   
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Segoe UI Variable Display', 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+        font-variation-settings: 'opsz' 36;
+        margin: 0.4em 0;
+    }
+    h1 {
+        @apply text-h1;
+    }
+    h2 {
+        @apply text-h2;
+    }
+    h3 {
+        @apply text-h3;
+    }
+    h4 {
+        @apply text-h4;
+    }
+    h5 {
+        @apply text-h5;
+    }
+    h6 {
+        @apply text-h6;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-card-fill outline outline-1 outline-card-stroke rounded-control;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .card {
+            @apply bg-card-fill outline outline-1 outline-card-stroke rounded-control;
+        }
+    }
+}

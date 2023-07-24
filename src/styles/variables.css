@@ -1,0 +1,17 @@
+:root {
+    --background: #f3f3f3;
+    --accentFill: #003d92;
+    --accentText: #003d92;
+    --cardFill: #ffffffb3;
+    --cardStroke: #0000000f;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #202020;
+        --accentFill: #60ccfe;
+        --accentText: #98ecfe;
+        --cardFill: #ffffff0d;
+        --cardStroke: #00000019;
+    }
+}    

@@ -1,0 +1,37 @@
+---
+import githubLogoLight from '../../assets/github-mark.svg';
+import githubLogo from '../../assets/github-mark-white.svg';
+import linkIconLight from '../../assets/link.svg';
+import linkIcon from '../../assets/link-white.svg';
+
+interface Props {
+    name: string
+    time?: string,
+    link?: string,
+    github?: string
+}
+const {name, time, link, github} = Astro.props;
+---
+
+<div class="w-full p-4 card leading-snug mb-2">
+    <div class="flex mb-3 flex-row items-center justify-between">
+        <h3 class="m-0 text-h4 leading-tight">{name}</h3>
+        <div class="flex flex-row items-center">
+            <span class="text-neutral-500 dark:text-neutral-400" style={`display: ${time ? "inline" : "none"}`}>{time} &nbsp;•&nbsp;&nbsp;</span>
+            <a href={`https://github.com/${github}`} style={`display: ${github ? 'block' : 'none'}`}>
+                <picture>
+                    <source srcset={githubLogo} media="(prefers-color-scheme: dark)" />
+                    <img src={githubLogoLight} alt="GitHub" class="h-[1.4rem]" />
+                </picture>
+            </a>
+            <a href={link} style={`display: ${link ? 'block' : 'none'}`} class="ml-3">
+                <picture>
+                    <source srcset={linkIcon} media="(prefers-color-scheme: dark)" />
+                    <img src={linkIconLight} alt="Link" class="h-[1.4rem]" />
+                </picture>
+            </a>
+        </div>
+    </div>
+    <slot />
+   
+</div>

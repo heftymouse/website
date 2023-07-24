@@ -1,0 +1,31 @@
+---
+import '../styles/styles.css';
+import '../styles/variables.css';
+import NavBar from '../components/NavBar.astro';
+
+interface Props {
+	centerContent?: boolean
+	title?: string
+}
+
+const {centerContent, title} = (Astro.props as any)['frontmatter'] as Props || Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{`${title ? `${title} - ` : ""}heftymouse`}</title>
+	</head>
+	<body class="relative min-h-[calc(100vh-4rem)] m-8 flex flex-col items-center bg-background" style=`justify-content: ${centerContent ? 'center' : 'normal'}`>
+        <a class="absolute top-0 -left-52 focus:left-0 print:hidden m-3" href="#main" tabindex="100">Skip to content</a>
+		<header class="absolute top-0">
+			<NavBar />
+		</header>
+        <main id="main" class="max-w-3xl" style=`margin-top: ${centerContent ? '0' : '6rem'}`>
+            <slot />
+        </main>
+	</body>
+</html>
