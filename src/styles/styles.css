@@ -27,7 +27,6 @@
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Segoe UI Variable Display', 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
         font-variation-settings: 'opsz' 36;
-        margin: 0.4em 0;
     }
     h1 {
         @apply text-h1;
@@ -50,6 +49,10 @@
 }
 
 @layer components {
+    .heading {
+        margin: 0.4em 0;
+    }
+
     .card {
         @apply bg-card-fill outline outline-1 outline-card-stroke rounded-control;
     }
