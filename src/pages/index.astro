@@ -42,7 +42,9 @@ import mailIconLight from "../../assets/mail.svg";
 		</div>
 	</div>
 
-	<script>
+	<script type="module">
+		let discord = document.querySelector('#discord');
+		let discordText = document.querySelector('#discordText');
 		discord.addEventListener('click', async () => {
 			await navigator.clipboard.writeText('heftymouse');
 			discordText.innerHTML = 'Copied!';
