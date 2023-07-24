@@ -43,12 +43,13 @@ import mailIconLight from "../../assets/mail.svg";
 	</div>
 
 	<script>
-		document.querySelector('#discord').addEventListener('click', async () => {
+		discord.addEventListener('click', async () => {
 			await navigator.clipboard.writeText('heftymouse');
 			discordText.innerHTML = 'Copied!';
-			setTimeout(() => {
-				discordText.innerHTML = 'heftymouse';
-			}, 3000);
+		});
+
+		discord.addEventListener('mouseleave', () => {
+			discordText.innerHTML = "heftymouse";
 		});
 	</script>
 </BaseLayout>
