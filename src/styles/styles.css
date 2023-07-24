@@ -15,9 +15,6 @@
         font-optical-sizing: auto;
         @apply text-body;
     }
-    p {
-        margin-bottom: 1.5rem;
-    }
     a {
         color: var(--accentText);    
     }
@@ -49,8 +46,12 @@
 }
 
 @layer components {
-    .heading {
+    .content > h1,h2,h3,h4,h5,h6 {
         margin: 0.4em 0;
+    }
+
+    .content > p {
+        margin-bottom: 1.5rem;
     }
 
     .card {
