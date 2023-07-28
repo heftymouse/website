@@ -19,12 +19,12 @@ const {centerContent, title} = (Astro.props as any)['frontmatter'] as Props || A
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title ? `${title} - ` : ""}heftymouse`}</title>
 	</head>
-	<body class="supports-[height:_1dvh]:min-h-[100dvh] min-h-[100vh] p-8 grid grid-rows-[3.5rem_1fr] justify-items-center bg-background">
+	<body class="supports-[height:_1dvh]:min-h-[100dvh] min-h-[100vh] p-8 grid grid-rows-[3.5rem_1fr] gap-4 justify-items-center bg-background">
         <a class="absolute top-0 -left-52 focus:left-0 print:hidden m-3" href="#main" tabindex="100">Skip to content</a>
 		<header>
 			<NavBar />
 		</header>
-        <main id="main" class="mb-14 max-w-3xl" style=`align-self: ${centerContent ? 'center' : 'normal'}`>
+        <main id="main" class="mb-16 max-w-3xl" style=`align-self: ${centerContent ? 'center' : 'normal'}`>
             <slot />
         </main>
 	</body>
