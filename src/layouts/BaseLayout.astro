@@ -1,14 +1,14 @@
 ---
-import '../styles/styles.css';
-import '../styles/variables.css';
-import NavBar from '../components/NavBar.astro';
+import '../styles/styles.css'
+import '../styles/variables.css'
+import NavBar from '../components/NavBar.astro'
 
 interface Props {
 	centerContent?: boolean
 	title?: string
 }
 
-const {centerContent, title} = (Astro.props as any)['frontmatter'] as Props || Astro.props;
+const { centerContent, title } = ((Astro.props as any)['frontmatter'] as Props) || Astro.props
 ---
 
 <html lang="en">
@@ -17,15 +17,23 @@ const {centerContent, title} = (Astro.props as any)['frontmatter'] as Props || A
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{`${title ? `${title} - ` : ""}heftymouse`}</title>
+		<title>{`${title ? `${title} - ` : ''}heftymouse`}</title>
 	</head>
-	<body class="supports-[height:_1dvh]:min-h-[100dvh] min-h-[100vh] p-8 grid grid-rows-[3.5rem_1fr] gap-4 justify-items-center bg-background">
-        <a class="absolute top-0 -left-52 focus:left-0 print:hidden m-3" href="#main" tabindex="100">Skip to content</a>
+	<body
+		class="supports-[height:_1dvh]:min-h-[100dvh] min-h-[100vh] p-8 grid grid-rows-[3.5rem_1fr] gap-4 justify-items-center bg-background"
+	>
+		<a class="absolute top-0 -left-52 focus:left-0 print:hidden m-3" href="#main" tabindex="100"
+			>Skip to content</a
+		>
 		<header>
 			<NavBar />
 		</header>
-        <main id="main" class="mb-16 max-w-3xl" style=`align-self: ${centerContent ? 'center' : 'normal'}`>
-            <slot />
-        </main>
+		<main
+			id="main"
+			class="mb-16 max-w-3xl"
+			style=`align-self: ${centerContent ? 'center' : 'normal'}`
+		>
+			<slot />
+		</main>
 	</body>
 </html>

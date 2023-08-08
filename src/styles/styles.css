@@ -3,64 +3,93 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        color-scheme: light dark;
-        accent-color: var(--accentFill);
-        fill: CanvasText;
-    } 
-    body {
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
-        font-optical-sizing: auto;
-        @apply text-body;
-    }
-    a {
-        color: var(--accentText);    
-    }
-    a:hover {
-        text-decoration: underline;
-    }   
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Segoe UI Variable Display', 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
-        font-variation-settings: 'opsz' 36;
-    }
-    h1 {
-        @apply text-h1;
-    }
-    h2 {
-        @apply text-h2;
-    }
-    h3 {
-        @apply text-h3;
-    }
-    h4 {
-        @apply text-h4;
-    }
-    h5 {
-        @apply text-h5;
-    }
-    h6 {
-        @apply text-h6;
-    }
+	* {
+		background-clip: padding-box;
+	}
+	:root {
+		color-scheme: light dark;
+		accent-color: var(--accentFill);
+		fill: CanvasText;
+	}
+	body {
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+		font-optical-sizing: auto;
+		@apply text-body;
+	}
+	a {
+		color: var(--accentText);
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: 'Segoe UI Variable Display', 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+		font-variation-settings: 'opsz' 36;
+	}
+	h1 {
+		@apply text-h1;
+	}
+	h2 {
+		@apply text-h2;
+	}
+	h3 {
+		@apply text-h3;
+	}
+	h4 {
+		@apply text-h4;
+	}
+	h5 {
+		@apply text-h5;
+	}
+	h6 {
+		@apply text-h6;
+	}
+	input[type='text'],
+	input[type='url'],
+	textarea {
+		background-color: var(--controlFill);
+		border-width: 1px;
+		border-color: var(--controlStroke);
+		outline: none;
+		@apply rounded-control p-1 px-2;
+	}
+
+	:is(input[type='text'], input[type='url'], textarea):focus {
+		margin-bottom: -1px;
+		border-bottom-width: 2px;
+		border-bottom-color: var(--accentFill);
+	}
+
+	:is(input[type='text'], input[type='url'], textarea)::placeholder {
+		color: var(--textSecondary);
+	}
+
+	button,
+	input[type='submit'] {
+		background-color: var(--controlFill);
+		border-width: 1px;
+		border-color: var(--controlStroke);
+		@apply rounded-control p-1 px-2;
+	}
 }
 
 @layer components {
-    .content > h1,h2,h3,h4,h5,h6 {
-        margin: 0.4em 0;
-    }
+	.content > :is(h1, h2, h3, h4, h5, h6) {
+		margin: 0.4em 0;
+	}
 
-    .content > p {
-        margin-bottom: 1.5rem;
-    }
+	.content > p {
+		margin-bottom: 1.5rem;
+	}
 
-    .card {
-        @apply bg-card-fill outline outline-1 outline-card-stroke rounded-control;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .card {
-            @apply bg-card-fill outline outline-1 outline-card-stroke rounded-control;
-        }
-    }
+	.card {
+		@apply rounded-control border border-card-stroke bg-card-fill;
+	}
 }

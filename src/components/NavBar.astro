@@ -1,25 +1,32 @@
 ---
-type Routes = "Home" | "About" | "Projects" | "Guestbook";
+type Routes = 'Home' | 'About' | 'Projects' | 'Guestbook'
 
 const links: Record<Routes, string> = {
-    "Home": "/",
-    "About": "/about",
-    "Projects": "/projects",
-    "Guestbook": "/guestbook"
-    // "Other": "/other"
-};
-
+	Home: '/',
+	About: '/about',
+	Projects: '/projects',
+	Guestbook: '/guestbook'
+	// "Other": "/other"
+}
 ---
 
 <nav>
-    <ul class="flex flex-row">
-        {
-            Object.entries(links).map((e, i) =>(
-                <li class="flex flex-col items-center">
-                    <a href={e[1]} class="text-text hover:no-underline m-3 mb-2">{e[0]}</a>
-                    <div aria-hidden="true" class="h-1 w-[16px] bg-accent-fill rounded-full" style={`visibility: ${e[1].substring(1) == Astro.url.pathname.split('/')[1] ? 'visible' : 'hidden'}`}></div>
-                </li>
-            ))
-        }
-    </ul>    
+	<ul class="flex flex-row">
+		{
+			Object.entries(links).map((e, i) => (
+				<li class="flex flex-col items-center">
+					<a href={e[1]} class="text-text hover:no-underline m-3 mb-2">
+						{e[0]}
+					</a>
+					<div
+						aria-hidden="true"
+						class="h-1 w-[16px] bg-accent-fill rounded-full"
+						style={`visibility: ${
+							e[1].substring(1) == Astro.url.pathname.split('/')[1] ? 'visible' : 'hidden'
+						}`}
+					/>
+				</li>
+			))
+		}
+	</ul>
 </nav>

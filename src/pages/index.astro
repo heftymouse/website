@@ -1,12 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro'
 
-import githubLogo from "../../assets/github-mark-white.svg";
-import githubLogoLight from "../../assets/github-mark.svg";
-import discordLogo from "../../assets/discord-mark-white.svg";
-import discordLogoLight from "../../assets/discord-mark-black.svg";
-import mailIcon from "../../assets/mail-white.svg";
-import mailIconLight from "../../assets/mail.svg";
+import githubLogo from '../../assets/github-mark-white.svg'
+import githubLogoLight from '../../assets/github-mark.svg'
+import discordLogo from '../../assets/discord-mark-white.svg'
+import discordLogoLight from '../../assets/discord-mark-black.svg'
+import mailIcon from '../../assets/mail-white.svg'
+import mailIconLight from '../../assets/mail.svg'
 ---
 
 <BaseLayout centerContent={true}>
@@ -15,8 +15,14 @@ import mailIconLight from "../../assets/mail.svg";
 		<h1 class="leading-tight mb-3">Hey, I'm heftymouse</h1>
 		<div class="mb-5">
 			<p class="mb-3">I am a student and hobbyist software developer.</p>
-			<p class="mb-3">I like to make apps designed for the modern Windows ecosystem. Other interests of mine include web dev, Discord bots, and anything else that may catch my interest.</p>
-			<p class="mb-2">I live in Bengaluru, India, and am currently pursuing a bachelor's degree in Computer Science and Engineering.</p>
+			<p class="mb-3">
+				I like to make apps designed for the modern Windows ecosystem. Other interests of mine
+				include web dev, Discord bots, and anything else that may catch my interest.
+			</p>
+			<p class="mb-2">
+				I live in Bengaluru, India, and am currently pursuing a bachelor's degree in Computer
+				Science and Engineering.
+			</p>
 			<a href="/about">See more →</a>
 		</div>
 		<div class="flex flex-row items-center select-none">
@@ -30,26 +36,30 @@ import mailIconLight from "../../assets/mail.svg";
 				<source srcset={discordLogo} media="(prefers-color-scheme: dark)" />
 				<img id="discord" src={discordLogoLight} alt="Discord" class="w-[1.8rem]" />
 			</picture>
-			<span id="discordText" class="mr-4 p-1 card leading-none hidden peer-hover/discord:block select-text">heftymouse</span>
-			<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#105;&#107;&#98;&#104;&#97;&#114;&#97;&#100;&#119;&#97;&#106;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">
+			<span
+				id="discordText"
+				class="mr-4 p-1 card leading-none hidden peer-hover/discord:block select-text"
+				>heftymouse</span
+			>
+			<a href="mailto:nikbharadwaj@outlook.com">
 				<picture>
 					<source srcset={mailIcon} media="(prefers-color-scheme: dark)" />
-					<img src={mailIconLight} alt="E-mail" class="h-[1.8rem]"/>
+					<img src={mailIconLight} alt="E-mail" class="h-[1.8rem]" />
 				</picture>
 			</a>
 		</div>
 	</div>
 
 	<script type="module">
-		let discord = document.querySelector('#discord');
-		let discordText = document.querySelector('#discordText');
+		let discord = document.querySelector('#discord')
+		let discordText = document.querySelector('#discordText')
 		discord.addEventListener('click', async () => {
-			await navigator.clipboard.writeText('heftymouse');
-			discordText.innerHTML = 'Copied!';
-		});
+			await navigator.clipboard.writeText('heftymouse')
+			discordText.innerHTML = 'Copied!'
+		})
 
 		discord.addEventListener('mouseleave', () => {
-			discordText.innerHTML = "heftymouse";
-		});
+			discordText.innerHTML = 'heftymouse'
+		})
 	</script>
 </BaseLayout>
