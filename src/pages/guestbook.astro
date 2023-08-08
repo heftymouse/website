@@ -25,7 +25,6 @@ if (
 	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
 ) {
 	const data = new URLSearchParams(await req.text());
-	console.dir(data);
 	const name = data.get('name')?.trim();
 	const url = data.get('link')?.trim() ?? '';
 	const message = data.get('message')?.trim() ?? '';
@@ -38,7 +37,6 @@ if (
 		message.length <= 320
 	) {
 		const timestamp = Date.now();
-		console.log(Astro.clientAddress);
 		const m = JSON.stringify({
 			content: '<@684428788481917044> New guestbook message',
 			embeds: [
@@ -72,7 +70,6 @@ if (
 			},
 			body: m
 		});
-		console.log(await res.text());
 
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
 			.bind(anon ? '(anon)' : name, timestamp, url, message)
