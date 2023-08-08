@@ -17,7 +17,8 @@ interface Entry {
 }
 
 const req = Astro.request;
-const env = getRuntime(Astro.request).env as Env;
+const runtime = getRuntime(Astro.request);
+const env = runtime.env as Env;
 
 if (
 	req.method === 'POST' &&
@@ -25,19 +26,19 @@ if (
 ) {
 	const data = new URLSearchParams(await req.text());
 	console.dir(data);
-	const name = data.get('name');
-	const url = data.get('link') ?? '';
-	const message = data.get('message');
-	const anon = data.get('anonymous') === 'true';
+	const name = data.get('name')?.trim();
+	const url = data.get('link')?.trim() ?? '';
+	const message = data.get('message')?.trim() ?? '';
+	const anon = data.get('anonymous') === 'on';
 	if (
 		name &&
 		name?.length <= 64 &&
-		url.includes('://') &&
+		(!url || url.includes('://')) &&
 		url.length <= 128 &&
-		message &&
 		message.length <= 320
 	) {
-		const timestamp = Math.floor(Date.now() / 1000);
+		const timestamp = Date.now();
+		console.log(Astro.clientAddress);
 		await fetch(import.meta.env.WEBHOOK_URL, {
 			method: 'POST',
 			headers: {
@@ -55,11 +56,11 @@ if (
 						fields: [
 							{
 								name: `Sent at`,
-								value: `<t:${timestamp}>`
+								value: `<t:${Math.floor(timestamp / 1000)}>`
 							},
 							{
-								name: 'IP address',
-								value: Astro.clientAddress
+								name: 'Country',
+								value: runtime.cf?.country
 							}
 						]
 					}
@@ -68,7 +69,7 @@ if (
 		});
 
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
-			.bind(anon ? name : '(anon)', timestamp, url, message)
+			.bind(anon ? '(anon)' : name, timestamp, url, message)
 			.run();
 	}
 }
@@ -93,8 +94,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 				style="margin-bottom:0"
 				name="message"
 				placeholder="Message"
-				maxlength="320"
-				required></textarea>
+				maxlength="320"></textarea>
 			<div class="w-fit grid grid-cols-[auto_1em] gap-2 items-stretch">
 				<label for="formAnonymous">Submit anonymously?</label>
 				<input class="mt-0.5" type="checkbox" id="formAnonymous" name="anonymous" />
@@ -117,7 +117,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 					<span class="row-start-1 justify-self-end text-neutral-500 dark:text-neutral-400">
 						{new Date(e.timestamp).toDateString()}
 					</span>
-					<p>{e.message}</p>
+					{e.message && <p>{e.message}</p>}
 				</li>
 			))
 		}
