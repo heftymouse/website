@@ -56,6 +56,10 @@ if (
 						{
 							name: 'IP Address',
 							value: `${Astro.clientAddress} (${runtime.cf?.country})`
+						},
+						{
+							name: 'User Agent',
+							value: req.headers.get('Content-Type') ?? 'Unavailable'
 						}
 					]
 				}
