@@ -39,34 +39,36 @@ if (
 	) {
 		const timestamp = Date.now();
 		console.log(Astro.clientAddress);
-		await fetch(import.meta.env.WEBHOOK_URL, {
+		const m = JSON.stringify({
+			content: '<@684428788481917044> New guestbook message',
+			embeds: [
+				{
+					type: 'rich',
+					title: name,
+					url: url,
+					description: message,
+					color: 0x36f38b,
+					fields: [
+						{
+							name: `Sent at`,
+							value: `<t:${Math.floor(timestamp / 1000)}>`
+						},
+						{
+							name: 'Country',
+							value: runtime.cf?.country
+						}
+					]
+				}
+			]
+		});
+		const res = await fetch(import.meta.env.WEBHOOK_URL, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({
-				content: '<@684428788481917044> New guestbook message',
-				embeds: [
-					{
-						type: 'rich',
-						title: name,
-						url: url,
-						description: message,
-						color: 0x36f38b,
-						fields: [
-							{
-								name: `Sent at`,
-								value: `<t:${Math.floor(timestamp / 1000)}>`
-							},
-							{
-								name: 'Country',
-								value: runtime.cf?.country
-							}
-						]
-					}
-				]
-			})
+			body: m
 		});
+		console.log(await res.text());
 
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
 			.bind(anon ? '(anon)' : name, timestamp, url, message)
