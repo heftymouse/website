@@ -54,8 +54,8 @@ if (
 							value: `<t:${Math.floor(timestamp / 1000)}>`
 						},
 						{
-							name: 'Country',
-							value: runtime.cf?.country
+							name: 'IP Address',
+							value: `${Astro.clientAddress} (${runtime.cf?.country})`
 						}
 					]
 				}
