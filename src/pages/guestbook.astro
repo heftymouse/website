@@ -68,7 +68,7 @@ if (
 		});
 
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
-			.bind(name, timestamp, url, message)
+			.bind(anon ? name : '(anon)', timestamp, url, message)
 			.run();
 	}
 }
