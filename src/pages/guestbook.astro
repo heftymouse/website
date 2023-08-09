@@ -16,69 +16,69 @@ interface Entry {
 	message: string;
 }
 
-// const req = Astro.request;
-// const runtime = getRuntime(Astro.request);
-// const env = runtime.env as Env;
+const req = Astro.request;
+const runtime = getRuntime(Astro.request);
+const env = runtime.env as Env;
 
-// if (
-// 	req.method === 'POST' &&
-// 	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
-// ) {
-// 	const data = new URLSearchParams(await req.text());
-// 	const name = data.get('name')?.trim();
-// 	const url = data.get('link')?.trim() ?? '';
-// 	const message = data.get('message')?.trim() ?? '';
-// 	const anon = data.get('anonymous') === 'on';
-// 	if (
-// 		name &&
-// 		name?.length <= 64 &&
-// 		(!url || url.includes('://')) &&
-// 		url.length <= 128 &&
-// 		message.length <= 320
-// 	) {
-// 		const timestamp = Date.now();
-// 		const m = JSON.stringify({
-// 			content: '<@684428788481917044> New guestbook message',
-// 			embeds: [
-// 				{
-// 					type: 'rich',
-// 					title: name,
-// 					url: url,
-// 					description: message,
-// 					color: 0x36f38b,
-// 					fields: [
-// 						{
-// 							name: `Sent at`,
-// 							value: `<t:${Math.floor(timestamp / 1000)}>`
-// 						},
-// 						{
-// 							name: 'IP Address',
-// 							value: `${Astro.clientAddress} (${runtime.cf?.country})`
-// 						},
-// 						{
-// 							name: 'User Agent',
-// 							value: req.headers.get('User-Agent') ?? 'Unavailable'
-// 						}
-// 					]
-// 				}
-// 			]
-// 		});
-// 		const res = await fetch(import.meta.env.WEBHOOK_URL, {
-// 			method: 'POST',
-// 			headers: {
-// 				'Content-Type': 'application/json'
-// 			},
-// 			body: m
-// 		});
+if (
+	req.method === 'POST' &&
+	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
+) {
+	const data = new URLSearchParams(await req.text());
+	const name = data.get('name')?.trim();
+	const url = data.get('link')?.trim() ?? '';
+	const message = data.get('message')?.trim() ?? '';
+	const anon = data.get('anonymous') === 'on';
+	if (
+		name &&
+		name?.length <= 64 &&
+		(!url || url.includes('://')) &&
+		url.length <= 128 &&
+		message.length <= 320
+	) {
+		const timestamp = Date.now();
+		const m = JSON.stringify({
+			content: '<@684428788481917044> New guestbook message',
+			embeds: [
+				{
+					type: 'rich',
+					title: name,
+					url: url,
+					description: message,
+					color: 0x36f38b,
+					fields: [
+						{
+							name: `Sent at`,
+							value: `<t:${Math.floor(timestamp / 1000)}>`
+						},
+						{
+							name: 'IP Address',
+							value: `${Astro.clientAddress} (${runtime.cf?.country})`
+						},
+						{
+							name: 'User Agent',
+							value: req.headers.get('User-Agent') ?? 'Unavailable'
+						}
+					]
+				}
+			]
+		});
+		const res = await fetch(import.meta.env.WEBHOOK_URL, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: m
+		});
 
-// 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
-// 			.bind(anon ? '(anon)' : name, timestamp, url, message)
-// 			.run();
-// 	}
-// }
+		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
+			.bind(anon ? '(anon)' : name, timestamp, url, message)
+			.run();
+	}
+}
 
-// const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
-// 	.results as unknown as Entry[] | null;
+const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
+	.results as unknown as Entry[] | null;
 ---
 
 <BaseLayout title="Guestbook">
@@ -106,23 +106,23 @@ interface Entry {
 		</form>
 		<hr class="border-divider-stroke mb-3" />
 		<ul class="grid gap-1">
-			<!-- {
-			result?.map((e) => (
-				<li class="grid gap-y-1 items-center card p-4">
-					{e.url ? (
-						<a class="row-start-1" href={e.url}>
-							<h2 class="text-h4">{e.name}</h2>
-						</a>
+			{
+				result?.map((e) => (
+					<li class="grid gap-y-1 items-center card p-4">
+						{e.url ? (
+							<a class="row-start-1" href={e.url}>
+								<h2 class="text-h4">{e.name}</h2>
+							</a>
 						) : (
-						<h2 class="row-start-1 text-h4">{e.name}</h2>
+							<h2 class="row-start-1 text-h4">{e.name}</h2>
 						)}
 						<span class="row-start-1 justify-self-end text-neutral-500 dark:text-neutral-400">
-						{new Date(e.timestamp).toDateString()}
-					</span>
-					{e.message && <p>{e.message}</p>}
-				</li>
-			))
-		} -->
+							{new Date(e.timestamp).toDateString()}
+						</span>
+						{e.message && <p>{e.message}</p>}
+					</li>
+				))
+			}
 		</ul>
 	</div>
 </BaseLayout>
