@@ -1,14 +1,14 @@
 ---
-import '../styles/styles.css'
-import '../styles/variables.css'
-import NavBar from '../components/NavBar.astro'
+import '../styles/styles.css';
+import '../styles/variables.css';
+import NavBar from '../components/NavBar.astro';
 
 interface Props {
-	centerContent?: boolean
-	title?: string
+	centerContent?: boolean;
+	title?: string;
 }
 
-const { centerContent, title } = ((Astro.props as any)['frontmatter'] as Props) || Astro.props
+const { centerContent, title } = ((Astro.props as any)['frontmatter'] as Props) || Astro.props;
 ---
 
 <html lang="en">
@@ -30,7 +30,7 @@ const { centerContent, title } = ((Astro.props as any)['frontmatter'] as Props) 
 		</header>
 		<main
 			id="main"
-			class="mb-16 max-w-3xl"
+			class="mb-16 justify-self-stretch md:justify-self-center max-w-3xl"
 			style=`align-self: ${centerContent ? 'center' : 'normal'}`
 		>
 			<slot />
