@@ -80,6 +80,11 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 				<label for="formAnonymous">Submit anonymously?</label>
 				<input class="mt-0.5" type="checkbox" id="formAnonymous" name="anonymous" />
 			</div>
+			<span class="text-caption italic">
+				When you press Submit, your IP address, derived country code, and user agent will be logged
+				for spam detection purposes. If you'd like this to be deleted (or your entry modified or
+				removed), contact me using any of the links at <a href="/home">/home</a>.
+			</span>
 			<input class="mt-3 justify-self-center" type="submit" value="Submit" />
 		</form>
 		<hr class="border-divider-stroke mb-3" />
