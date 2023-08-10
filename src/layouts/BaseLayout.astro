@@ -18,6 +18,7 @@ const { centerContent, title } = ((Astro.props as any)['frontmatter'] as Props) 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title ? `${title} - ` : ''}heftymouse`}</title>
+		<slot name="head" />
 	</head>
 	<body
 		class="supports-[height:_1dvh]:min-h-[100dvh] min-h-[100vh] p-8 grid grid-rows-[3.5rem_1fr] gap-4 justify-items-center bg-background"

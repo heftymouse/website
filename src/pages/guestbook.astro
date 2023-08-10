@@ -4,6 +4,7 @@ export const prerender = false;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { D1Database } from '@cloudflare/workers-types';
 import { getRuntime } from '@astrojs/cloudflare/runtime';
+import { postGuestbookWebhook } from '../lib/discord';
 
 export interface Env {
 	DB: D1Database;
@@ -37,40 +38,15 @@ if (
 		message.length <= 320
 	) {
 		const timestamp = Date.now();
-		const m = JSON.stringify({
-			content: '<@684428788481917044> New guestbook message',
-			embeds: [
-				{
-					type: 'rich',
-					title: name,
-					url: url,
-					description: message,
-					color: 0x36f38b,
-					fields: [
-						{
-							name: `Sent at`,
-							value: `<t:${Math.floor(timestamp / 1000)}>`
-						},
-						{
-							name: 'IP Address',
-							value: `${Astro.clientAddress} (${runtime.cf?.country})`
-						},
-						{
-							name: 'User Agent',
-							value: req.headers.get('User-Agent') ?? 'Unavailable'
-						}
-					]
-				}
-			]
-		});
-		const res = await fetch(import.meta.env.WEBHOOK_URL, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: m
-		});
-
+		postGuestbookWebhook(
+			name,
+			url,
+			message,
+			timestamp,
+			Astro.clientAddress,
+			runtime.cf?.country ?? 'None',
+			req.headers.get('User-Agent') ?? 'Unavailable'
+		);
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
 			.bind(anon ? '(anon)' : name, timestamp, url, message)
 			.run();
@@ -82,6 +58,9 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 ---
 
 <BaseLayout title="Guestbook">
+	<slot slot="head">
+		<meta name="robots" content="noindex" />
+	</slot>
 	<div class="w-full md:min-w-[36rem]">
 		<h1 class="mb-2">Guestbook</h1>
 		<form id="guestbookForm" method="post" class="w-full mb-4 p-3 grid gap-1 items-start card">

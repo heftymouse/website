@@ -1,3 +1,3 @@
 # website
 
-This is my website, made with Astro and Tailwind CSS to create an approximation of WinUI.
+This is my website, made with Astro, Tailwind CSS and Cloudflare. Suggestions appreciated!
