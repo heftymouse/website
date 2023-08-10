@@ -1,6 +1,6 @@
 ---
-import ProjectCard from '../components/ProjectCard.astro'
-import BaseLayout from '../layouts/BaseLayout.astro'
+import ProjectCard from '../components/ProjectCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Projects">
@@ -10,6 +10,15 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 		repositories and have others that are still in the works.
 	</span>
 	<h2 class="mb-1">My Projects</h2>
+	<ProjectCard
+		name="This Website!"
+		github="heftymouse/website"
+		link="https://heftymouse.me"
+		time="July 2023 - Present"
+	>
+		What you're reading right now! Built with Astro, Tailwind CSS and Cloudflare D1, using an
+		imitation of WinUI's styles.
+	</ProjectCard>
 	<ProjectCard name="Twin" github="heftymouse/twin" time="July 2022 - Present">
 		A browser for <a href="https://gemini.circumlunar.space">Geminispace</a>, a lightweight document
 		protocol, made in WinUI 3 and C#.
