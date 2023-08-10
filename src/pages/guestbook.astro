@@ -58,9 +58,8 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 ---
 
 <BaseLayout title="Guestbook">
-	<slot slot="head">
-		<meta name="robots" content="noindex" />
-	</slot>
+	<meta slot="head" name="robots" content="noindex" />
+
 	<div class="w-full md:min-w-[36rem]">
 		<h1 class="mb-2">Guestbook</h1>
 		<form id="guestbookForm" method="post" class="w-full mb-4 p-3 grid gap-1 items-start card">
