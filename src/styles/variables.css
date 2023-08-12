@@ -8,7 +8,6 @@
 	--dividerStroke: #0000000f;
 	--controlFill: #ffffffb3;
 	--controlStroke: #0000000f;
-	--controlActiveFill: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +21,5 @@
 		--dividerStroke: #ffffff15;
 		--controlFill: #ffffff0f;
 		--controlStroke: #ffffff12;
-		--controlActiveFill: #1e1e1eb3;
 	}
 }

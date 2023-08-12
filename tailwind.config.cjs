@@ -14,7 +14,9 @@ module.exports = {
 				'accent-text': 'var(--accentText)',
 				'card-fill': 'var(--cardFill)',
 				'card-stroke': 'var(--cardStroke)',
-				'divider-stroke': 'var(--dividerStroke)'
+				'divider-stroke': 'var(--dividerStroke)',
+				'control-fill': 'var(--controlFill)',
+				'control-stroke': 'var(--controlStroke)',
 			},
 			fontSize: {
 				caption: ['0.85rem', '1rem'],
