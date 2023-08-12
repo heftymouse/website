@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-import githubLogo from '../../assets/github-mark-white.svg'
-import githubLogoLight from '../../assets/github-mark.svg'
-import discordLogo from '../../assets/discord-mark-white.svg'
-import discordLogoLight from '../../assets/discord-mark-black.svg'
-import mailIcon from '../../assets/mail-white.svg'
-import mailIconLight from '../../assets/mail.svg'
+import githubLogo from '../../assets/github-mark-white.svg';
+import githubLogoLight from '../../assets/github-mark.svg';
+import discordLogo from '../../assets/discord-mark-white.svg';
+import discordLogoLight from '../../assets/discord-mark-black.svg';
+import mailIcon from '../../assets/mail-white.svg';
+import mailIconLight from '../../assets/mail.svg';
 ---
 
 <BaseLayout centerContent={true}>
-	<div class="max-w-[24rem]">
+	<div class="mb-16 max-w-[24rem]">
 		<h1 class="-ml-2 mb-1 select-none">👋</h1>
 		<h1 class="leading-tight mb-3">Hey, I'm heftymouse</h1>
 		<div class="mb-5">
@@ -51,15 +51,15 @@ import mailIconLight from '../../assets/mail.svg'
 	</div>
 
 	<script type="module">
-		let discord = document.querySelector('#discord')
-		let discordText = document.querySelector('#discordText')
+		let discord = document.querySelector('#discord');
+		let discordText = document.querySelector('#discordText');
 		discord.addEventListener('click', async () => {
-			await navigator.clipboard.writeText('heftymouse')
-			discordText.innerHTML = 'Copied!'
-		})
+			await navigator.clipboard.writeText('heftymouse');
+			discordText.innerHTML = 'Copied!';
+		});
 
 		discord.addEventListener('mouseleave', () => {
-			discordText.innerHTML = 'heftymouse'
-		})
+			discordText.innerHTML = 'heftymouse';
+		});
 	</script>
 </BaseLayout>
