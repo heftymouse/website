@@ -85,7 +85,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 				for spam detection purposes. If you'd like this to be deleted (or your entry modified or
 				removed), contact me using any of the links at the <a href="/">homepage</a>.
 			</span>
-			<input class="mt-3 justify-self-center" type="submit" value="Submit" />
+			<input class="mt-3 justify-self-center" id="submitButton" type="submit" value="Submit" />
 		</form>
 		<hr class="mb-3" />
 		<ul class="grid gap-1">
@@ -108,4 +108,10 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 			}
 		</ul>
 	</div>
+	<script>
+		const submitButton = document.querySelector('#submitButton');
+		document.forms[0].addEventListener('submit', () => {
+			submitButton.disabled = true;
+		});
+	</script>
 </BaseLayout>
