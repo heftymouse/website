@@ -93,7 +93,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 				result?.map((e) => (
 					<li class="grid gap-y-1 items-center card p-4">
 						{e.url ? (
-							<a class="row-start-1" href={e.url}>
+							<a class="row-start-1" rel="ugc" href={e.url}>
 								<h2 class="text-h4">{e.name}</h2>
 							</a>
 						) : (

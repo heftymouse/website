@@ -3,12 +3,14 @@ import BaseLayout from './BaseLayout.astro';
 
 interface Props {
 	title?: string;
+	noindex?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, noindex } = ((Astro.props as any)['frontmatter'] as Props) || Astro.props;
 ---
 
 <BaseLayout centerContent={false} title={title}>
+	{noindex && (<meta slot="head" name="robots" content="noindex" />)}
 	<div class="content">
 		<slot />
 	</div>

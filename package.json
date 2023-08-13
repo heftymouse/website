@@ -11,21 +11,22 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^6.6.2",
+		"@astrojs/cloudflare": "^6.8.0",
 		"@astrojs/mdx": "^0.19.7",
+		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/tailwind": "^4.0.0",
-		"astro": "^2.10.1",
+		"astro": "^2.10.7",
 		"cssnano": "^6.0.1",
 		"mime": "^3.0.0",
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.6.1"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20230801.0",
+		"@cloudflare/workers-types": "^4.20230807.0",
 		"prettier": "^3.0.1",
 		"prettier-plugin-astro": "^0.11.0",
-		"prettier-plugin-tailwindcss": "^0.4.1",
+		"prettier-plugin-tailwindcss": "^0.5.2",
 		"typescript": "^5.1.6",
-		"wrangler": "^3.4.0"
+		"wrangler": "^3.5.0"
 	}
 }
