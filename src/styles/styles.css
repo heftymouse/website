@@ -18,6 +18,9 @@
 		font-optical-sizing: auto;
 		@apply text-body;
 	}
+	pre {
+		@apply card p-2 leading-snug;
+	}
 	a {
 		color: var(--accentText);
 	}
@@ -88,7 +91,12 @@
 	}
 
 	.content > p {
-		margin-bottom: 1.5rem;
+		margin: 0.75rem 0;
+	}
+
+	.content > ul {
+		list-style: disc outside;
+		margin-left: 1rem;
 	}
 
 	.card {

@@ -1,6 +1,7 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"importHelpers": true
+		"importHelpers": true,
+		"allowJs": true
 	}
 }
