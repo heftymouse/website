@@ -15,12 +15,6 @@ export default defineConfig({
 		mdx(),
 		sitemap()
 	],
-	experimental: {
-		assets: true
-	},
-	image: {
-		service: squooshImageService()
-	},
 	adapter: cloudflare(),
 	vite: {
 		ssr: {
