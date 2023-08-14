@@ -12,9 +12,8 @@ This post is mostly a guide, with some of my personal experience thrown in as we
 ## The tl;dr
 
 I installed Arch to a VHD(x) using WSL, created a root partition in Windows using WinBtrfs, cloned the VHD to said partition, copied over the kernel and initrd to my EFI partition, and used the UEFI Shell to create an EFISTUB boot entry.
-That's it, you can go home now.
 
-## I want more! (aka the actual guide)
+## The actual guide
 
 This is the part with somewhat detailed instructions. A prerequisite to reading this is being able to figure out how to install Arch normally — covering that here would be wasteful, feel free to consult the excellent [Arch Wiki](https://wiki.archlinux.org/title/Installation_guide) for that.
 
