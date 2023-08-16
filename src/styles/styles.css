@@ -30,31 +30,29 @@
 	a:hover {
 		text-decoration: underline;
 	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
+	h1 {
 		font-family: 'Segoe UI Variable Display', 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
 		font-variation-settings: 'opsz' 36;
-	}
-	h1 {
 		@apply text-h1;
 	}
 	h2 {
+		font-variation-settings: 'opsz' 32;
 		@apply text-h2;
 	}
 	h3 {
+		font-variation-settings: 'opsz' 28;
 		@apply text-h3;
 	}
 	h4 {
+		font-variation-settings: 'opsz' 24;
 		@apply text-h4;
 	}
 	h5 {
+		font-variation-settings: 'opsz' 20;
 		@apply text-h5;
 	}
 	h6 {
+		font-variation-settings: 'opsz' 16;
 		@apply text-h6;
 	}
 	input[type='text'],
@@ -92,16 +90,19 @@
 	.content > :is(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 0.8rem;
 	}
-
 	.content > :not(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 1.2em;
 	}
-
+	.content > :has(+ hr) {
+		margin-bottom: 1rem;
+	}
+	.content > hr {
+		margin-bottom: 1rem;
+	}
 	.content > ul {
 		list-style: disc outside;
 		margin-left: 1rem;
 	}
-
 	.card {
 		@apply rounded-control border border-card-stroke bg-card-fill;
 	}

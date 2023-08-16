@@ -5,6 +5,8 @@ description: A difficult solution to a problem you are unlikely to face
 
 # Installing Arch Linux from Windows without a Live USB
 
+---
+
 I had a hankering to install bare-metal Linux again to inform myself on the latest and greatest updates in the world of desktop Linux, to see if `(currentYear + 1)` will truly be the year that the entire world simultaneously changes their operating system. However, I realized I did not have a suitable flash drive to install the Arch installer to (seriously, everyone has a million tiny USBs all the time, how did I end up like this), and thus set out on this foolish (but successful!) journey.
 
 ## The tl;dr
