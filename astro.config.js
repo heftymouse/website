@@ -15,6 +15,11 @@ export default defineConfig({
 		mdx(),
 		sitemap()
 	],
+	markdown: {
+		shikiConfig: {
+			theme: 'github-dark'
+		}
+	},
 	adapter: cloudflare(),
 	vite: {
 		ssr: {

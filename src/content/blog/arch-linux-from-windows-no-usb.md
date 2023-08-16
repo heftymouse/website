@@ -5,9 +5,7 @@ description: A difficult solution to a problem you are unlikely to face
 
 # Installing Arch Linux from Windows without a Live USB
 
-I had a hankering to install bare-metal Linux again to inform myself on the latest and greatest updates in the world of desktop Linux to see if `(currentYear + 1)` will truly be the year that the entire world simultaneously changes their operating system. However, I had the _absolutely ridiculous_ problem of not having a suitable flash drive to install the Arch installer to (seriously, everyone has a million tiny usbs all the time, how did I end up like this), and thus set out on this foolish (but successful!) journey.
-
-This post is mostly a guide, with some of my personal experience thrown in as well. Enjoy!
+I had a hankering to install bare-metal Linux again to inform myself on the latest and greatest updates in the world of desktop Linux, to see if `(currentYear + 1)` will truly be the year that the entire world simultaneously changes their operating system. However, I realized I did not have a suitable flash drive to install the Arch installer to (seriously, everyone has a million tiny USBs all the time, how did I end up like this), and thus set out on this foolish (but successful!) journey.
 
 ## The tl;dr
 
@@ -15,13 +13,14 @@ I installed Arch to a VHD(x) using WSL, created a root partition in Windows usin
 
 ## The actual guide
 
-This is the part with somewhat detailed instructions. A prerequisite to reading this is being able to figure out how to install Arch normally — covering that here would be wasteful, feel free to consult the excellent [Arch Wiki](https://wiki.archlinux.org/title/Installation_guide) for that.
+This is the part with somewhat detailed instructions. This guide doesn't cover how to install Arch — that would be wasteful, feel free to consult the excellent [Arch Wiki](https://wiki.archlinux.org/title/Installation_guide) for that.
 
 ### Prerequisites
 
 - A version of Windows that supports `wsl --mount` (Windows 11 build 22000 and above)
 - A WSL distro, ideally [Arch WSL](https://github.com/yuk7/ArchWSL) for simplicity
 - [WinBtrfs](https://github.com/maharmstone/btrfs)
+- [UEFI Shell](https://github.com/pbatard/UEFI-Shell)
 - Free time and a system restart
 
 Make sure to save all your work before starting — you may experience BSODs from WinBtrfs.
@@ -37,9 +36,11 @@ Mount-VHD -Path ~/Documents/arch.vhdx
 wsl --mount \\.\PHYSICALDRIVE<n> --bare
 ```
 
+Skipping this and directly installing to your root partition mounted in Windows is possible, but I didn't do it since it seemed to be much slower overall than copying after the fact. I'm not entirely sure though; more testing may be required.
+
 ### Installing Arch
 
-I recommend using Arch WSL for this since you can easily use the same tools as the Live USB. Install the `arch-install-scripts` package, and follow the rest of the installation guide as usual for your mounted VHD.
+I recommend using Arch WSL for this since you can easily use the same tools as the Live USB. Install the `arch-install-scripts` package, and follow the rest of the [installation guide](https://wiki.archlinux.org/title/Installation_guide#Partition_the_disks) as usual for your mounted VHD.
 
 Some things to note:
 
@@ -110,7 +111,7 @@ Start the kernel from the command-line as follows:
 ```sh
 fs0: # or whatever your EFI partition is
 vmlinuz-linux root=/dev/nvme0n1p3 rootfstype=btrfs initrd=\initramfs-linux-fallback.img
-# i just guessed my root partition's block device, feel free to use its GUID from the map command instead
+# i guessed my root partition's block device, feel free to use its GUID from the map command instead
 ```
 
-This uses the fallback initramfs which contains more or less all the modules, ensuring that it'll work regardless of your system configuration. From here, you can now rebuild your initramfs, create an fstab, make an actual boot entry using `efibootmgr`, and set up the rest of your system.
+This uses the fallback initramfs which contains more or less all the modules, ensuring that it'll work regardless of your system configuration. From here, you can now rebuild your initramfs, create an fstab, make an actual boot entry using `efibootmgr` or whatever else you prefer, and set up the rest of your system.

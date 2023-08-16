@@ -16,7 +16,7 @@ module.exports = {
 				'card-stroke': 'var(--cardStroke)',
 				'divider-stroke': 'var(--dividerStroke)',
 				'control-fill': 'var(--controlFill)',
-				'control-stroke': 'var(--controlStroke)',
+				'control-stroke': 'var(--controlStroke)'
 			},
 			fontSize: {
 				caption: ['0.85rem', '1rem'],
@@ -25,7 +25,7 @@ module.exports = {
 				h5: ['1.25rem', { lineHeight: '1.5rem', fontWeight: 600 }],
 				h4: ['1.5rem', { lineHeight: '2rem', fontWeight: 600 }],
 				h3: ['1.75rem', { lineHeight: '2.25rem', fontWeight: 600 }],
-				h2: ['2rem', { lineHeight: '3.25rem', fontWeight: 600 }],
+				h2: ['2rem', { lineHeight: '2.75rem', fontWeight: 600 }],
 				h1: ['2.5rem', { lineHeight: '3.25rem', fontWeight: 600 }]
 			}
 		}

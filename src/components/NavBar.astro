@@ -1,26 +1,33 @@
 ---
-type Routes = 'Home' | 'About' | 'Projects' | 'Guestbook'
+type Routes = 'Home' | 'About' | 'Projects' | 'Guestbook' | 'Blog';
+
+interface Props {
+	hidden?: boolean;
+}
 
 const links: Record<Routes, string> = {
 	Home: '/',
 	About: '/about',
 	Projects: '/projects',
+	Blog: '/blog',
 	Guestbook: '/guestbook'
 	// "Other": "/other"
-}
+};
+
+const { hidden } = Astro.props;
 ---
 
 <nav>
-	<ul class="flex flex-row">
+	<ul class={`flex flex-row`}>
 		{
 			Object.entries(links).map((e, i) => (
 				<li class="flex flex-col items-center">
-					<a href={e[1]} class="text-text hover:no-underline m-3 mb-2">
+					<a href={e[1]} class="m-3 mb-2 text-text hover:no-underline">
 						{e[0]}
 					</a>
 					<div
 						aria-hidden="true"
-						class="h-1 w-[16px] bg-accent-fill rounded-full"
+						class="h-1 w-[16px] rounded-full bg-accent-fill"
 						style={`visibility: ${
 							e[1].substring(1) == Astro.url.pathname.split('/')[1] ? 'visible' : 'hidden'
 						}`}

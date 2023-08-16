@@ -21,17 +21,17 @@ const { centerContent, title } = ((Astro.props as any)['frontmatter'] as Props) 
 		<slot name="head" />
 	</head>
 	<body
-		class="supports-[height:_1dvh]:min-h-[100dvh] min-h-[100vh] p-8 grid grid-rows-[3.5rem_1fr] gap-4 justify-items-center bg-background"
+		class="grid min-h-[100vh] grid-rows-[3.5rem_1fr] justify-items-center gap-4 bg-background p-4 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8"
 	>
-		<a class="absolute top-0 -left-52 focus:left-0 print:hidden m-3" href="#main" tabindex="100"
-			>Skip to content</a
-		>
+		<a class="absolute -left-52 top-0 m-3 focus:left-0 print:hidden" href="#main">
+			Skip to content
+		</a>
 		<header>
-			<NavBar />
+			<NavBar hidden={true} />
 		</header>
 		<main
 			id="main"
-			class="justify-self-stretch md:justify-self-center max-w-3xl"
+			class="max-w-[min(100%,48rem)]"
 			style=`align-self: ${centerContent ? 'center' : 'normal'}`
 		>
 			<slot />

@@ -21,6 +21,9 @@
 	pre {
 		@apply card p-2 leading-snug;
 	}
+	:not(pre) > code {
+		@apply card px-1 py-0.5;
+	}
 	a {
 		color: var(--accentText);
 	}
@@ -87,11 +90,11 @@
 
 @layer components {
 	.content > :is(h1, h2, h3, h4, h5, h6) {
-		margin: 0.4em 0;
+		margin-bottom: 0.8rem;
 	}
 
-	.content > p {
-		margin: 0.75rem 0;
+	.content > :not(h1, h2, h3, h4, h5, h6) {
+		margin-bottom: 1.2em;
 	}
 
 	.content > ul {

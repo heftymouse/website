@@ -10,8 +10,8 @@ const { title, noindex } = ((Astro.props as any)['frontmatter'] as Props) || Ast
 ---
 
 <BaseLayout centerContent={false} title={title}>
-	{noindex && (<meta slot="head" name="robots" content="noindex" />)}
-	<div class="content">
+	{noindex && <meta slot="head" name="robots" content="noindex" />}
+	<div class="content grid max-w-[72ch]">
 		<slot />
 	</div>
 </BaseLayout>
