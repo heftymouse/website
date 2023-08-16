@@ -1,6 +1,6 @@
 ---
 title: Installing Arch Linux from Windows without a Live USB
-description: A difficult solution to a problem you are unlikely to face
+description: A difficult solution to an unlikely problem.
 ---
 
 # Installing Arch Linux from Windows without a Live USB
