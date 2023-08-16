@@ -17,44 +17,44 @@ interface Entry {
 	message: string;
 }
 
-// const req = Astro.request;
-// const runtime = getRuntime(Astro.request);
-// const env = runtime.env as Env;
+const req = Astro.request;
+const runtime = getRuntime(Astro.request);
+const env = runtime.env as Env;
 
-// if (
-// 	req.method === 'POST' &&
-// 	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
-// ) {
-// 	const data = new URLSearchParams(await req.text());
-// 	const name = data.get('name')?.trim();
-// 	const url = data.get('link')?.trim() ?? '';
-// 	const message = data.get('message')?.trim() ?? '';
-// 	const anon = data.get('anonymous') === 'on';
-// 	if (
-// 		name &&
-// 		name?.length <= 64 &&
-// 		(!url || url.includes('://')) &&
-// 		url.length <= 128 &&
-// 		message.length <= 320
-// 	) {
-// 		const timestamp = Date.now();
-// 		postGuestbookWebhook(
-// 			name,
-// 			url,
-// 			message,
-// 			timestamp,
-// 			Astro.clientAddress,
-// 			runtime.cf?.country ?? 'None',
-// 			req.headers.get('User-Agent') ?? 'Unavailable'
-// 		);
-// 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
-// 			.bind(anon ? '(anon)' : name, timestamp, url, message)
-// 			.run();
-// 	}
-// }
+if (
+	req.method === 'POST' &&
+	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
+) {
+	const data = new URLSearchParams(await req.text());
+	const name = data.get('name')?.trim();
+	const url = data.get('link')?.trim() ?? '';
+	const message = data.get('message')?.trim() ?? '';
+	const anon = data.get('anonymous') === 'on';
+	if (
+		name &&
+		name?.length <= 64 &&
+		(!url || url.includes('://')) &&
+		url.length <= 128 &&
+		message.length <= 320
+	) {
+		const timestamp = Date.now();
+		postGuestbookWebhook(
+			name,
+			url,
+			message,
+			timestamp,
+			Astro.clientAddress,
+			runtime.cf?.country ?? 'None',
+			req.headers.get('User-Agent') ?? 'Unavailable'
+		);
+		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
+			.bind(anon ? '(anon)' : name, timestamp, url, message)
+			.run();
+	}
+}
 
-// const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
-// 	.results as unknown as Entry[] | null;
+const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
+	.results as unknown as Entry[] | null;
 ---
 
 <BaseLayout title="Guestbook">
@@ -89,7 +89,7 @@ interface Entry {
 		</form>
 		<hr class="mb-3" />
 		<ul class="grid gap-1">
-			<!-- {
+			{
 				result?.map((e) => (
 					<li class="card grid items-center gap-y-1 p-4">
 						{e.url ? (
@@ -105,7 +105,7 @@ interface Entry {
 						{e.message && <p>{e.message}</p>}
 					</li>
 				))
-			} -->
+			}
 		</ul>
 	</div>
 	<script>
