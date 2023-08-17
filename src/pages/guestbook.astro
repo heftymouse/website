@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import type { D1Database } from '@cloudflare/workers-types';
 import { getRuntime } from '@astrojs/cloudflare/runtime';
 import { postGuestbookWebhook } from '../lib/discord';
+import { formatDate } from '../lib/date';
 
 export interface Env {
 	DB: D1Database;
@@ -100,7 +101,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 							<h2 class="row-start-1 text-h4">{e.name}</h2>
 						)}
 						<span class="row-start-1 justify-self-end text-neutral-500 dark:text-neutral-400">
-							{new Date(e.timestamp).toDateString()}
+							{formatDate(new Date(e.timestamp))}
 						</span>
 						{e.message && <p>{e.message}</p>}
 					</li>

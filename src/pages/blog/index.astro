@@ -1,20 +1,30 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate } from '../../lib/date';
 
-const collection = await getCollection('blog');
+const collection = (await getCollection('blog')).sort((a, b) => {
+	const d1 = a.data.date;
+	const d2 = b.data.date;
+	if (d1 < d2) return 1;
+	else if (d1 > d2) return -1;
+	else return 0;
+});
 ---
 
 <BaseLayout title="Blog">
 	<div class="w-full md:min-w-[36rem]">
 		<h1 class="mb-[0.8rem]">Blog</h1>
-		<ol>
+		<ol class="grid gap-1">
 			{
 				collection.map((e) => (
 					<a href={`/blog/${e.slug}`} class="text-inherit hover:no-underline">
-						<li class="card p-4">
-							<h2 class="mb-2 text-h3 hover:underline">{e.data.title}</h2>
+						<li class="card flex flex-col p-4">
+							<h2 class="mb-1 text-h4 hover:underline">{e.data.title}</h2>
 							{e.data.description}
+							<span class="text-neutral-500 dark:text-neutral-400">
+								{`${formatDate(e.data.date)}`}
+							</span>
 						</li>
 					</a>
 				))

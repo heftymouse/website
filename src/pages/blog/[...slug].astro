@@ -1,6 +1,7 @@
 ---
 import { getCollection, CollectionEntry } from 'astro:content';
 import ContentLayout from '../../layouts/ContentLayout.astro';
+import { formatDate } from '../../lib/date';
 
 interface Props {
 	entry: CollectionEntry<'blog'>;
@@ -21,5 +22,10 @@ const { Content } = await entry.render();
 ---
 
 <ContentLayout title={entry.data.title}>
+	<h1>{entry.data.title}</h1>
+	<span class="text-neutral-500 dark:text-neutral-400">
+		{formatDate(entry.data.date, true)}
+	</span>
+	<hr />
 	<Content />
 </ContentLayout>

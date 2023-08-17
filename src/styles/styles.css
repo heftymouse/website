@@ -64,15 +64,12 @@
 		outline: none;
 		@apply rounded-control p-1 px-2;
 	}
-
 	:is(input[type='text'], input[type='url'], textarea):focus {
 		box-shadow: 0px 2px 0px -0.5px var(--accentFill);
 	}
-
 	:is(input[type='text'], input[type='url'], textarea)::placeholder {
 		color: var(--textSecondary);
 	}
-
 	button,
 	input[type='submit'] {
 		background-color: var(--controlFill);

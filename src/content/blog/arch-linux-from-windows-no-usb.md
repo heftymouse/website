@@ -1,10 +1,7 @@
 ---
 title: Installing Arch Linux from Windows without a Live USB
 description: A difficult solution to an unlikely problem.
----
-
-# Installing Arch Linux from Windows without a Live USB
-
+date: 2023-08-17
 ---
 
 I had a hankering to install bare-metal Linux again to inform myself on the latest and greatest updates in the world of desktop Linux, to see if `(currentYear + 1)` will truly be the year that the entire world simultaneously changes their operating system. However, I realized I did not have a suitable flash drive to install the Arch installer to (seriously, everyone has a million tiny USBs all the time, how did I end up like this), and thus set out on this foolish (but successful!) journey.
@@ -97,7 +94,7 @@ Copy-Item path\to\shell\bootx64.efi S:\EFI\Shell\UefiShell.efi
 Create the firmware boot entry for UEFI Shell as follows:
 
 ```
-bcdedit /create  /d "UEFI Shell" /inherit '{bootmgr}'   # save the GUID you get from this
+bcdedit /create  /d "UEFI Shell" /inherit "{bootmgr}"  # save the GUID you get from this
 bcdedit /set "{your-guid}" path "\EFI\Shell\UefiShell.efi"
 bcdedit /set "{fwbootmgr}" displayorder "{your-guid}" /addlast
 ```
