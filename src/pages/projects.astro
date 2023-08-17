@@ -1,56 +1,62 @@
 ---
 import ProjectCard from '../components/ProjectCard.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentLayout from '../layouts/ContentLayout.astro';
 ---
 
-<BaseLayout title="Projects">
+<ContentLayout title="Projects">
 	<h1 class="mb-2">Projects</h1>
 	<span class="text-caption italic"
 		>This is only a subset of my best projects. I've made many minor contributions to various
 		repositories and have others that are still in the works.
 	</span>
-	<h2 class="mb-1">My Projects</h2>
-	<ProjectCard
-		name="This Website!"
-		github="heftymouse/website"
-		link="https://heftymouse.me"
-		time="July 2023 - Present"
-	>
-		What you're reading right now! Built with Astro, Tailwind CSS and Cloudflare D1, using an
-		imitation of WinUI's styles.
-	</ProjectCard>
-	<ProjectCard name="Twin" github="heftymouse/twin" time="July 2022 - Present">
-		A browser for <a href="https://gemini.circumlunar.space">Geminispace</a>, a lightweight document
-		protocol, made in WinUI 3 and C#.
-	</ProjectCard>
-	<ProjectCard name="Arconia" github="heftymouse/arconia" time="July-September 2022">
-		An incomplete WinUI 3 RCON client with a terrible name.
-	</ProjectCard>
-	<ProjectCard name="BMTCMate" github="heftymouse/bmtcmate" time="July 2023">
-		An iOS app I co-created for a hackathon. It adds a home screen widget showing you BMTC
-		(Bengaluru's bus service) buses arriving at your nearest stop, and a function to track a route
-		with a Live Activity.
-	</ProjectCard>
-	<ProjectCard
-		name="tsconverter"
-		github="heftymouse/tsconverter"
-		time="January 2023"
-		link="https://heftymouse.github.io/tsconverter"
-	>
-		A super simple tool to turn <a href="https://terminal.sexy">terminal.sexy</a> links into Windows
-		Terminal colour schemes.
-	</ProjectCard>
+	<h2>My Projects</h2>
+	<ul style="margin-left: 0;">
+		<ProjectCard
+			name="This Website!"
+			github="heftymouse/website"
+			link="https://heftymouse.me"
+			time="July 2023 - Present"
+		>
+			What you're reading right now! Inspired by
+			<a href="https://www.figma.com/community/file/1159947337437047524/Windows-UI-3">WinUI</a>, and
+			built with Astro, Tailwind CSS and Cloudflare D1.
+		</ProjectCard>
+		<ProjectCard name="Twin" github="heftymouse/twin" time="July 2022 - Present">
+			A browser for <a href="https://gemini.circumlunar.space">Geminispace</a>, a lightweight
+			document protocol, made in WinUI 3 and C#.
+		</ProjectCard>
+		<ProjectCard name="Arconia" github="heftymouse/arconia" time="July-September 2022">
+			An incomplete WinUI 3 RCON client with a terrible name.
+		</ProjectCard>
+		<ProjectCard name="BMTCMate" github="heftymouse/bmtcmate" time="July 2023">
+			An iOS app I co-created for a hackathon. It adds a home screen widget showing you BMTC
+			(Bengaluru's bus service) buses arriving at your nearest stop, and a function to track a route
+			with a Live Activity.
+		</ProjectCard>
+		<ProjectCard
+			name="tsconverter"
+			github="heftymouse/tsconverter"
+			time="January 2023"
+			link="https://heftymouse.github.io/tsconverter"
+		>
+			A super simple tool to turn <a href="https://terminal.sexy">terminal.sexy</a> links into
+			Windows Terminal colour schemes.
+		</ProjectCard>
+	</ul>
+
 	<h2 class="mb-1">Contributions</h2>
-	<ProjectCard
-		name="Files for Windows"
-		github="files-community/Files"
-		link="https://files.community"
-	>
-		I helped add a feature to navigate back and forwards using touch gestures, and re-added support
-		for Acrylic as a backdrop.
-	</ProjectCard>
-	<ProjectCard name="discord-ban-appeals" github="Microsoft-community/discord-ban-appeals">
-		I added a system for tracking the state of appeals internally using Discord message components.
-		I also ported the app from AWS Lambda to native Vercel functions.
-	</ProjectCard>
-</BaseLayout>
+	<ul style="margin-left: 0;">
+		<ProjectCard
+			name="Files for Windows"
+			github="files-community/Files"
+			link="https://files.community"
+		>
+			I helped add a feature to navigate back and forwards using touch gestures, and re-added
+			support for Acrylic as a backdrop.
+		</ProjectCard>
+		<ProjectCard name="discord-ban-appeals" github="Microsoft-community/discord-ban-appeals">
+			I added a system for tracking the state of appeals internally using Discord message
+			components. I also ported the app from AWS Lambda to native Vercel functions.
+		</ProjectCard>
+	</ul>
+</ContentLayout>

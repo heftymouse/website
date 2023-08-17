@@ -1,4 +1,4 @@
 Sitemap: https://heftymouse.me/sitemap-index.xml
 
-User-Agent: *
+User-agent: *
 Allow: /

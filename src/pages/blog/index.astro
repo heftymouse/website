@@ -7,12 +7,12 @@ const collection = await getCollection('blog');
 
 <BaseLayout title="Blog">
 	<div class="w-full md:min-w-[36rem]">
-		<h1 class="mb-3">Blog</h1>
+		<h1 class="mb-[0.8rem]">Blog</h1>
 		<ol>
 			{
 				collection.map((e) => (
 					<a href={`/blog/${e.slug}`} class="text-inherit hover:no-underline">
-						<li class="card p-3">
+						<li class="card p-4">
 							<h2 class="mb-2 text-h3 hover:underline">{e.data.title}</h2>
 							{e.data.description}
 						</li>
