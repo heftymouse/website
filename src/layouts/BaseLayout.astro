@@ -5,11 +5,12 @@ import NavBar from '../components/NavBar.astro';
 
 interface Props {
 	title?: string;
+	embedTitle?: string;
 	description?: string;
 	centerContent?: boolean;
 }
 
-const { centerContent, title, description } =
+const { centerContent, title, embedTitle, description } =
 	((Astro.props as any)['frontmatter'] as Props) || Astro.props;
 ---
 
@@ -20,9 +21,11 @@ const { centerContent, title, description } =
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title ? `${title} - ` : ''}heftymouse`}</title>
-		<meta name="description" content={description ?? "heftymouse's website"} />
-		<meta name="og:title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="og:title" content={embedTitle ?? title ?? 'heftymouse'} />
 		<meta name="og:url" content={Astro.url} />
+		<meta name="og:description" content={description} />
+		<meta name="og:site_name" content="heftymouse" />
 		<meta name="theme-color" content="#fcd53f" />
 		<slot name="head" />
 	</head>

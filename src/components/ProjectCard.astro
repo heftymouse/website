@@ -13,8 +13,8 @@ interface Props {
 const { name, time, link, github } = Astro.props;
 ---
 
-<div class="card w-full p-4 leading-snug">
-	<div class="mb-3 flex flex-row items-center justify-between">
+<article class="card w-full p-4 leading-snug">
+	<div class="mb-1 flex flex-row items-center justify-between">
 		<h3 class="m-0 text-h4 leading-tight">{name}</h3>
 		<div class="hidden flex-row items-center md:flex">
 			<span
@@ -54,4 +54,4 @@ const { name, time, link, github } = Astro.props;
 			</picture>
 		</a>
 	</div>
-</div>
+</article>
