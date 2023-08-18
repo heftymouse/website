@@ -18,15 +18,20 @@ const collection = (await getCollection('blog')).sort((a, b) => {
 		<ol class="grid gap-1">
 			{
 				collection.map((e) => (
-					<a href={`/blog/${e.slug}`} class="text-inherit hover:no-underline">
-						<li class="card flex flex-col p-4">
-							<h2 class="mb-1 text-h4 hover:underline">{e.data.title}</h2>
-							{e.data.description}
-							<span class="text-neutral-500 dark:text-neutral-400">
-								{`${formatDate(e.data.date)}`}
-							</span>
-						</li>
-					</a>
+					<li class="card p-4">
+						<article>
+							<a href={`/blog/${e.slug}`} class="flex flex-col text-inherit hover:no-underline">
+								<h2 class="mb-1 text-h4">{e.data.title}</h2>
+								{e.data.description}
+								<time
+									datetime={e.data.date.toISOString()}
+									class="text-neutral-500 dark:text-neutral-400"
+								>
+									{`${formatDate(e.data.date)}`}
+								</time>
+							</a>
+						</article>
+					</li>
 				))
 			}
 		</ol>

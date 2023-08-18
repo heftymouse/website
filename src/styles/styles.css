@@ -81,9 +81,7 @@
 		border-color: var(--dividerStroke);
 		border-width: 1px;
 	}
-}
 
-@layer components {
 	.content > :is(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 0.8rem;
 	}
@@ -99,6 +97,13 @@
 	.content > ul {
 		list-style: disc outside;
 		margin-left: 1rem;
+	}
+}
+
+@layer components {
+	.content > :is(ul, ol).nolist {
+		list-style: none;
+		margin-left: 0;
 	}
 	.card {
 		@apply rounded-control border border-card-stroke bg-card-fill;
