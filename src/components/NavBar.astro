@@ -1,4 +1,5 @@
 ---
+import NavItem from './NavItem.astro';
 type Routes = 'Home' | 'About' | 'Projects' | 'Guestbook' | 'Blog';
 
 interface Props {
@@ -21,18 +22,11 @@ const { hidden } = Astro.props;
 	<ul class={`flex flex-row`}>
 		{
 			Object.entries(links).map((e, i) => (
-				<li class="flex flex-col items-center">
-					<a href={e[1]} class="m-3 mb-2 text-text hover:no-underline">
-						{e[0]}
-					</a>
-					<div
-						aria-hidden="true"
-						class="h-1 w-[16px] rounded-full bg-accent-fill"
-						style={`visibility: ${
-							e[1].substring(1) == Astro.url.pathname.split('/')[1] ? 'visible' : 'hidden'
-						}`}
-					/>
-				</li>
+				<NavItem
+					name={e[0]}
+					href={e[1]}
+					selected={e[1].substring(1) == Astro.url.pathname.split('/')[1]}
+				/>
 			))
 		}
 	</ul>

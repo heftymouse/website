@@ -21,7 +21,7 @@ const { centerContent, title, embedTitle, description } =
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title ? `${title} - ` : ''}heftymouse`}</title>
-		<meta name="description" content={description} />
+		<meta name="description" content={description ?? "heftymouse's website."} />
 		<meta name="og:title" content={embedTitle ?? title ?? 'heftymouse'} />
 		<meta name="og:url" content={Astro.url} />
 		<meta name="og:description" content={description} />
