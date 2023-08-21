@@ -23,7 +23,7 @@
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20230807.0",
-		"prettier": "^3.0.1",
+		"prettier": "^3.0.2",
 		"prettier-plugin-astro": "^0.11.0",
 		"prettier-plugin-tailwindcss": "^0.5.2",
 		"typescript": "^5.1.6",
