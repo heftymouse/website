@@ -1,6 +1,7 @@
 import type { APIContext } from 'astro';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import type { RSSFeedItem } from '@astrojs/rss';
 import { renderPost } from '../../lib/markdown';
 
 export async function get(ctx: APIContext) {
@@ -17,16 +18,21 @@ export async function get(ctx: APIContext) {
 			return {
 				title: e.data.title,
 				pubDate: e.data.date,
+				description: e.data.description,
 				link: `/blog/${e.slug}`,
-				content: await renderPost(e.body)
-			};
+				content: await renderPost(e.body, ctx.site ?? new URL('https://heftymouse.me'))
+			} as RSSFeedItem;
 		})
 	);
 
 	return rss({
+		xmlns: {
+			atom: 'http://www.w3.org/2005/Atom'
+		},
 		title: 'heftymouse',
 		description: "heftymouse's occasional musings.",
 		site: ctx.site ?? 'https://heftymouse.me/blog',
+		customData: `<atom:link href="${new URL('/blog/rss.xml', ctx.site)}" rel="self" type="application/rss+xml" />`,
 		items: items
 	});
 }
