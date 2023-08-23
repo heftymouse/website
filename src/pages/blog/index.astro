@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { formatDate } from '../../lib/date';
+import RssIcon from '../../components/icons/RssIcon.astro'
 
 const collection = (await getCollection('blog')).sort((a, b) => {
 	const d1 = a.data.date;
@@ -14,7 +15,13 @@ const collection = (await getCollection('blog')).sort((a, b) => {
 
 <BaseLayout title="Blog">
 	<div class="w-full md:min-w-[36rem]">
-		<h1 class="mb-[0.8rem]">Blog</h1>
+	<div class="w-full flex flex-row justify-between items-end mb-[0.8rem]">
+		<h1>Blog</h1>
+		<a href="/blog/rss.xml">
+			<RssIcon />
+		</a>
+	</div>
+
 		<ol class="grid gap-1">
 			{
 				collection.map((e) => (
