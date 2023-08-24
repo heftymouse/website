@@ -1,0 +1,50 @@
+---
+import { links } from '../lib/nav';
+import CloseIcon from './icons/CloseIcon.astro';
+import HamburgerIcon from './icons/HamburgerIcon.astro';
+---
+
+<div class="flex w-full flex-row justify-end sm:hidden">
+	<button id="mobileNavButton" class="-mr-3 border-none bg-transparent">
+		<HamburgerIcon size={24} class="stroke-text" />
+	</button>
+</div>
+<nav id="mobileNav" class="absolute left-0 top-0 h-screen w-full sm:hidden" hidden>
+	<div class="w-full p-8 pb-4 backdrop-blur-md">
+		<button id="mobileNavClose" class="float-right -mr-3 border-none bg-transparent">
+			<CloseIcon size={24} class="stroke-text" />
+		</button>
+		<ul class="flex flex-col">
+			{
+				Object.entries(links).map((e, i) => (
+					<li class="ml-2 flex flex-col">
+						<a
+							href={e[1]}
+							class="flex flex-row items-center p-2 text-text hover:no-underline"
+							class:list={[
+								{ 'nav-selected-vertical': e[1].substring(1) === Astro.url.pathname.split('/')[1] }
+							]}
+						>
+							{e[0]}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</nav>
+<script>
+	document.querySelector('#mobileNavButton')?.addEventListener('click', () => {
+		(document.querySelector('#mobileNav') as HTMLElement).hidden = false;
+	});
+
+	document.querySelector('#mobileNav')?.addEventListener('click', (e) => {
+		if (e.target === e.currentTarget) {
+			(e.currentTarget as HTMLElement).hidden = true;
+		}
+	});
+
+	document.querySelector('#mobileNavClose')?.addEventListener('click', (e) => {
+		(document.querySelector('#mobileNav') as HTMLElement).hidden = true;
+	});
+</script>

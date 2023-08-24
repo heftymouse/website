@@ -109,6 +109,18 @@
 		background: var(--accentFill);
 		border-radius: 9999px;
 	}
+	.nav-selected-vertical {
+		margin-left: -12px;
+	}
+	.nav-selected-vertical::before {
+		display: block;
+		content: '';
+		width: 4px;
+		height: 1.5rem;
+		margin-right: 8px;
+		background: var(--accentFill);
+		border-radius: 9999px;
+	}
 	.card {
 		@apply rounded-control border border-card-stroke bg-card-fill;
 	}

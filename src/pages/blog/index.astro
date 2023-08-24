@@ -15,10 +15,10 @@ const collection = (await getCollection('blog')).sort((a, b) => {
 
 <BaseLayout title="Blog">
 	<div class="w-full md:min-w-[36rem]">
-		<div class="mb-[0.8rem] flex w-full flex-row items-end justify-between">
-			<h1>Blog</h1>
+		<div class="mb-[1.1rem] flex w-full flex-row items-end justify-between">
+			<h1 class="leading-none">Blog</h1>
 			<a href="/blog/rss.xml">
-				<RssIcon />
+				<RssIcon size={28} class="fill-neutral-500 dark:fill-neutral-400" />
 			</a>
 		</div>
 
