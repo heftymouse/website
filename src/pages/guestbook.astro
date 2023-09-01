@@ -2,12 +2,11 @@
 export const prerender = false;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import type { D1Database } from '@cloudflare/workers-types';
-import { getRuntime } from '@astrojs/cloudflare/runtime';
+import type { D1Database, IncomingRequestCfProperties } from '@cloudflare/workers-types';
 import { postGuestbookWebhook } from '../lib/discord';
 import { formatDate } from '../lib/date';
 
-export interface Env {
+interface Env  {
 	DB: D1Database;
 }
 
@@ -19,8 +18,8 @@ interface Entry {
 }
 
 const req = Astro.request;
-const runtime = getRuntime(Astro.request);
-const env = runtime.env as Env;
+const runtime = Astro.locals.runtime;
+const env = runtime.env as unknown as Env;
 
 if (
 	req.method === 'POST' &&
@@ -45,7 +44,7 @@ if (
 			message,
 			timestamp,
 			Astro.clientAddress,
-			runtime.cf?.country ?? 'None',
+			(runtime.cf as IncomingRequestCfProperties).country ?? 'None',
 			req.headers.get('User-Agent') ?? 'Unavailable'
 		);
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
