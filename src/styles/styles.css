@@ -81,7 +81,9 @@
 		border-color: var(--dividerStroke);
 		border-width: 1px;
 	}
-
+	.content {
+		line-height: 1.8rem;
+	}
 	.content > :is(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 0.8rem;
 	}

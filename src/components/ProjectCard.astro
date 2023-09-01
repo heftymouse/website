@@ -23,14 +23,14 @@ const { name, time, link, github } = Astro.props;
 			>
 			<a href={`https://github.com/${github}`} style={`display: ${github ? 'block' : 'none'}`}>
 				<picture>
-					<source srcset={githubLogo} media="(prefers-color-scheme: dark)" />
-					<img src={githubLogoLight} alt="GitHub" class="h-[1.4rem]" />
+					<source srcset={githubLogo.src} media="(prefers-color-scheme: dark)" />
+					<img src={githubLogoLight.src} alt="GitHub" class="h-[1.4rem]" />
 				</picture>
 			</a>
 			<a href={link} style={`display: ${link ? 'block' : 'none'}`} class="ml-3">
 				<picture>
-					<source srcset={linkIcon} media="(prefers-color-scheme: dark)" />
-					<img src={linkIconLight} alt="Link" class="h-[1.4rem]" />
+					<source srcset={linkIcon.src} media="(prefers-color-scheme: dark)" />
+					<img src={linkIconLight.src} alt="Link" class="h-[1.4rem]" />
 				</picture>
 			</a>
 		</div>
@@ -43,14 +43,14 @@ const { name, time, link, github } = Astro.props;
 		>
 		<a href={`https://github.com/${github}`} style={`display: ${github ? 'block' : 'none'}`}>
 			<picture>
-				<source srcset={githubLogo} media="(prefers-color-scheme: dark)" />
-				<img src={githubLogoLight} alt="GitHub" class="h-[1.4rem]" />
+				<source srcset={githubLogo.src} media="(prefers-color-scheme: dark)" />
+				<img src={githubLogoLight.src} alt="GitHub" class="h-[1.4rem]" />
 			</picture>
 		</a>
 		<a href={link} style={`display: ${link ? 'block' : 'none'}`} class="ml-3">
 			<picture>
-				<source srcset={linkIcon} media="(prefers-color-scheme: dark)" />
-				<img src={linkIconLight} alt="Link" class="h-[1.4rem]" />
+				<source srcset={linkIcon.src} media="(prefers-color-scheme: dark)" />
+				<img src={linkIconLight.src} alt="Link" class="h-[1.4rem]" />
 			</picture>
 		</a>
 	</div>
