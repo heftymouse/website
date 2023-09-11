@@ -56,8 +56,8 @@ dependencies:
 
 devDependencies:
   '@cloudflare/workers-types':
-    specifier: ^4.20230821.0
-    version: 4.20230821.0
+    specifier: ^4.20230904.0
+    version: 4.20230904.0
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
@@ -95,7 +95,7 @@ packages:
       astro: ^3.0.0
     dependencies:
       '@astrojs/underscore-redirects': 0.3.0
-      '@cloudflare/workers-types': 4.20230821.0
+      '@cloudflare/workers-types': 4.20230904.0
       astro: 3.0.5
       esbuild: 0.19.2
       tiny-glob: 0.2.9
@@ -499,8 +499,8 @@ packages:
     dev: true
     optional: true
 
-  /@cloudflare/workers-types@4.20230821.0:
-    resolution: {integrity: sha512-lVQSyr5E4CEkQw7WIdsrMTj+kHjsm28mJ0B5AhNFByKR+16KTFsU/RW/nGLKHHW2jxT5lvYI+HjNQMzC9QR8Ng==}
+  /@cloudflare/workers-types@4.20230904.0:
+    resolution: {integrity: sha512-IX4oJCe14ctblSPZBlW64BVZ9nYLUo6sD2I5gu3hX0ywByYWm1OuoKm9Xb/Zpbj8Ph18Z7Ryii6u2/ocnncXdA==}
 
   /@esbuild-plugins/node-globals-polyfill@0.1.1(esbuild@0.16.3):
     resolution: {integrity: sha512-MR0oAA+mlnJWrt1RQVQ+4VYuRJW/P2YmRTv1AsplObyvuBMnPHiizUF95HHYiSsMGLhyGtWufaq2XQg6+iurBg==}
