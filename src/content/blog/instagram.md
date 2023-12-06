@@ -1,6 +1,6 @@
 ---
 title: I need to use Instagram
-description: Hanging onto contact by a Thread
+description: Hanging onto contact by a Thread.
 date: 2023-12-06
 ---
 
