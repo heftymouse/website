@@ -28,7 +28,7 @@ if (
 ) {
 	const data = new URLSearchParams(await req.text());
 
-	if(!verifyChallenge(data.get('cf-turnstile-response') ?? '', Astro.clientAddress))
+	if(!(await verifyChallenge(data.get('cf-turnstile-response') ?? '', Astro.clientAddress)))
 		return;
 
 	const name = data.get('name')?.trim();
