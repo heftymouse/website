@@ -21,16 +21,16 @@ const { name, time, link, github } = Astro.props;
 				class="text-neutral-500 dark:text-neutral-400"
 				style={`display: ${time ? 'inline' : 'none'}`}>{time} &nbsp;•&nbsp;&nbsp;</span
 			>
+			<a href={link} style={`display: ${link ? 'block' : 'none'}`} class="mr-3">
+				<picture>
+					<source srcset={linkIcon.src} media="(prefers-color-scheme: dark)" />
+					<img src={linkIconLight.src} alt="Link" class="h-[1.4rem]" />
+				</picture>
+			</a>
 			<a href={`https://github.com/${github}`} style={`display: ${github ? 'block' : 'none'}`}>
 				<picture>
 					<source srcset={githubLogo.src} media="(prefers-color-scheme: dark)" />
 					<img src={githubLogoLight.src} alt="GitHub" class="h-[1.4rem]" />
-				</picture>
-			</a>
-			<a href={link} style={`display: ${link ? 'block' : 'none'}`} class="ml-3">
-				<picture>
-					<source srcset={linkIcon.src} media="(prefers-color-scheme: dark)" />
-					<img src={linkIconLight.src} alt="Link" class="h-[1.4rem]" />
 				</picture>
 			</a>
 		</div>
