@@ -2,12 +2,12 @@
 export const prerender = false;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import type { D1Database } from '@cloudflare/workers-types';
-import { getRuntime } from '@astrojs/cloudflare/runtime';
+import type { D1Database, IncomingRequestCfProperties } from '@cloudflare/workers-types';
 import { postGuestbookWebhook } from '../lib/discord';
 import { formatDate } from '../lib/date';
+import { verifyChallenge } from '../lib/turnstile';
 
-export interface Env {
+interface Env  {
 	DB: D1Database;
 }
 
@@ -19,14 +19,18 @@ interface Entry {
 }
 
 const req = Astro.request;
-const runtime = getRuntime(Astro.request);
-const env = runtime.env as Env;
+const runtime = Astro.locals.runtime;
+const env = runtime.env as unknown as Env;
 
 if (
 	req.method === 'POST' &&
 	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
 ) {
 	const data = new URLSearchParams(await req.text());
+
+	if(!(await verifyChallenge(data.get('cf-turnstile-response') ?? '', Astro.clientAddress)))
+		return;
+
 	const name = data.get('name')?.trim();
 	const url = data.get('link')?.trim() ?? '';
 	const message = data.get('message')?.trim() ?? '';
@@ -45,7 +49,7 @@ if (
 			message,
 			timestamp,
 			Astro.clientAddress,
-			runtime.cf?.country ?? 'None',
+			(runtime.cf as IncomingRequestCfProperties).country ?? 'None',
 			req.headers.get('User-Agent') ?? 'Unavailable'
 		);
 		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
@@ -59,7 +63,10 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 ---
 
 <BaseLayout title="Guestbook">
-	<meta slot="head" name="robots" content="noindex" />
+	<Fragment slot="head">
+		<meta name="robots" content="noindex" />
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+	</Fragment>
 
 	<div class="w-full md:min-w-[36rem]">
 		<h1 class="mb-2">Guestbook</h1>
@@ -81,6 +88,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 				<label for="formAnonymous">Submit anonymously?</label>
 				<input class="mt-0.5" type="checkbox" id="formAnonymous" name="anonymous" />
 			</div>
+			<div class="cf-turnstile" data-sitekey="0x4AAAAAAAIkiKaNNrmrks99"></div>
 			<small class="text-caption italic">
 				When you press Submit, your IP address, derived country code, and user agent will be logged
 				for spam detection purposes. If you'd like this to be deleted (or your entry modified or
@@ -110,7 +118,7 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 		</ul>
 	</div>
 	<script>
-		const submitButton = document.querySelector('#submitButton');
+		const submitButton = document.querySelector('#submitButton') as HTMLInputElement;
 		document.forms[0].addEventListener('submit', () => {
 			submitButton.disabled = true;
 		});

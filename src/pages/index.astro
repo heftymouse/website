@@ -14,7 +14,7 @@ import mailIconLight from '../../assets/mail.svg';
 	embedTitle="Home"
 	description="Hey, I'm heftymouse. I am a student and hobbyist software developer."
 >
-	<div class="mb-16 max-w-[24rem]">
+	<div class="mx-auto max-w-[24rem]">
 		<span class="-ml-2 mb-1 select-none text-h1">👋</span>
 		<h1 class="mb-3 leading-tight">Hey, I'm heftymouse</h1>
 		<div class="mb-5">
@@ -25,20 +25,20 @@ import mailIconLight from '../../assets/mail.svg';
 			</p>
 			<p class="mb-2">
 				I live in Bengaluru, India, and am currently pursuing a bachelor's degree in Computer
-				Science and Engineering.
+				Science.
 			</p>
 			<a href="/about">See more →</a>
 		</div>
 		<address class="flex select-none flex-row items-center">
 			<a href="https://github.com/heftymouse" class="mr-4">
 				<picture>
-					<source srcset={githubLogo} media="(prefers-color-scheme: dark)" />
-					<img src={githubLogoLight} alt="GitHub" class="mb-[0.075rem] h-[1.6rem]" />
+					<source srcset={githubLogo.src} media="(prefers-color-scheme: dark)" />
+					<img src={githubLogoLight.src} alt="GitHub" class="mb-[0.075rem] h-[1.6rem]" />
 				</picture>
 			</a>
 			<picture class="peer/discord mr-4 hover:mr-2">
-				<source srcset={discordLogo} media="(prefers-color-scheme: dark)" />
-				<img id="discord" src={discordLogoLight} alt="Discord" class="w-[1.8rem]" />
+				<source srcset={discordLogo.src} media="(prefers-color-scheme: dark)" />
+				<img id="discord" src={discordLogoLight.src} alt="Discord" class="w-[1.8rem]" />
 			</picture>
 			<span
 				id="discordText"
@@ -47,8 +47,8 @@ import mailIconLight from '../../assets/mail.svg';
 			>
 			<a href="mailto:hello@heftymouse.me">
 				<picture>
-					<source srcset={mailIcon} media="(prefers-color-scheme: dark)" />
-					<img src={mailIconLight} alt="E-mail" class="h-[1.8rem]" />
+					<source srcset={mailIcon.src} media="(prefers-color-scheme: dark)" />
+					<img src={mailIconLight.src} alt="E-mail" class="h-[1.8rem]" />
 				</picture>
 			</a>
 		</address>

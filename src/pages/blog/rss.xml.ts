@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import type { RSSFeedItem } from '@astrojs/rss';
 import { renderPost } from '../../lib/markdown';
 
-export async function get(ctx: APIContext) {
+export async function GET(ctx: APIContext) {
 	const collection = (await getCollection('blog')).sort((a, b) => {
 		const d1 = a.data.date;
 		const d2 = b.data.date;

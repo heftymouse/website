@@ -2,6 +2,7 @@
 import '../styles/styles.css';
 import '../styles/variables.css';
 import NavBar from '../components/NavBar.astro';
+import CompactNavBar from '../components/CompactNavBar.astro';
 
 interface Props {
 	title?: string;
@@ -30,17 +31,18 @@ const { centerContent, title, embedTitle, description } =
 		<slot name="head" />
 	</head>
 	<body
-		class="grid min-h-[100vh] grid-rows-[3.5rem_1fr] justify-items-center gap-4 bg-background p-4 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8"
+		class="grid min-h-[100vh] grid-rows-[auto_1fr] justify-items-center gap-4 bg-background p-8 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8"
 	>
 		<a class="absolute -left-52 top-0 m-3 focus:left-0 print:hidden" href="#main">
 			Skip to content
 		</a>
-		<header>
-			<NavBar hidden={true} />
+		<header class="w-full sm:w-fit">
+			<NavBar />
+			<CompactNavBar />
 		</header>
 		<main
 			id="main"
-			class="max-w-[min(100%,80ch)]"
+			class="max-w-[min(100%,80ch)] w-full"
 			style=`align-self: ${centerContent ? 'center' : 'normal'}`
 		>
 			<slot />
