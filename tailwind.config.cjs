@@ -9,7 +9,7 @@ module.exports = {
 			},
 			colors: {
 				background: 'var(--background)',
-				text: 'CanvasText',
+				text: 'var(--foreground)',
 				'accent-fill': 'var(--accentFill)',
 				'accent-text': 'var(--accentText)',
 				'card-fill': 'var(--cardFill)',

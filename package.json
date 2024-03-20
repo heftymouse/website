@@ -11,13 +11,13 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^9.0.0",
-		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/cloudflare": "^9.1.0",
+		"@astrojs/mdx": "^2.2.0",
 		"@astrojs/rss": "^4.0.5",
-		"@astrojs/sitemap": "^3.0.5",
+		"@astrojs/sitemap": "^3.1.1",
 		"@astrojs/tailwind": "^5.1.0",
-		"astro": "^4.3.3",
-		"cssnano": "^6.0.3",
+		"astro": "^4.5.6",
+		"cssnano": "^6.1.0",
 		"mime": "^4.0.1",
 		"rehype-sanitize": "^6.0.0",
 		"rehype-stringify": "^10.0.0",
@@ -29,11 +29,11 @@
 		"unist-util-visit": "^5.0.0"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240129.0",
+		"@cloudflare/workers-types": "^4.20240314.0",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
-		"prettier-plugin-tailwindcss": "^0.5.11",
-		"typescript": "^5.3.3",
-		"wrangler": "^3.27.0"
+		"prettier-plugin-tailwindcss": "^0.5.12",
+		"typescript": "^5.4.2",
+		"wrangler": "^3.34.2"
 	}
 }

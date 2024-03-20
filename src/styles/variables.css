@@ -1,4 +1,5 @@
 :root {
+	--foreground: #333333;
 	--background: #f3f3f3;
 	--textSecondary: #0000009e;
 	--accentFill: #003d92;
@@ -12,7 +13,8 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #202020;
+		--foreground: #dddddd;
+		--background: #1c1c1c;
 		--textSecondary: #ffffffc5;
 		--accentFill: #60ccfe;
 		--accentText: #98ecfe;

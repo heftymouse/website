@@ -9,7 +9,8 @@
 	:root {
 		color-scheme: light dark;
 		accent-color: var(--accentFill);
-		fill: CanvasText;
+		color: var(--foreground);
+		fill: var(--foreground);
 	}
 	body {
 		-webkit-font-smoothing: antialiased;
@@ -81,14 +82,17 @@
 		border-color: var(--dividerStroke);
 		border-width: 1px;
 	}
+}
+
+@layer components {
 	.content {
-		line-height: 1.75rem;
+		line-height: 1.95rem;
 	}
 	.content > :is(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 0.8rem;
 	}
 	.content > :not(h1, h2, h3, h4, h5, h6) {
-		margin-bottom: 1.2rem;
+		margin-bottom: 1.8rem;
 	}
 	.content > :has(+ hr) {
 		margin-bottom: 1rem;
@@ -100,9 +104,7 @@
 		list-style: disc outside;
 		margin-left: 1rem;
 	}
-}
 
-@layer components {
 	.nav-selected::after {
 		display: block;
 		content: '';
