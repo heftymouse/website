@@ -86,7 +86,7 @@
 
 @layer components {
 	.content {
-		line-height: 1.95rem;
+		line-height: 1.85rem;
 	}
 	.content > :is(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 0.8rem;
@@ -134,5 +134,9 @@
 	.content > :is(ul, ol).nolist {
 		list-style: none;
 		margin-left: 0;
+	}
+	
+	main:has(> .notopmargin) {
+		@apply mt-0;
 	}
 }

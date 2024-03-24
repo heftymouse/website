@@ -32,7 +32,7 @@ const collection = (await getCollection('blog')).sort((a, b) => {
 								{e.data.description}
 								<time
 									datetime={e.data.date.toISOString()}
-									class="text-neutral-500 dark:text-neutral-400"
+									class="text-caption mt-1 text-neutral-500 dark:text-neutral-400"
 								>
 									{`${formatDate(e.data.date)}`}
 								</time>
