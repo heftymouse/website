@@ -20,7 +20,9 @@ export default defineConfig({
 			theme: 'github-dark'
 		}
 	},
-	adapter: cloudflare(),
+	adapter: cloudflare({
+		imageService: 'compile'
+	}),
 	vite: {
 		ssr: {
 			noExternal: ['path-to-regexp']

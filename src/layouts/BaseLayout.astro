@@ -8,10 +8,9 @@ interface Props {
 	title?: string;
 	embedTitle?: string;
 	description?: string;
-	centerContent?: boolean;
 }
 
-const { centerContent, title, embedTitle, description } =
+const { title, embedTitle, description } =
 	((Astro.props as any)['frontmatter'] as Props) || Astro.props;
 ---
 
@@ -42,7 +41,7 @@ const { centerContent, title, embedTitle, description } =
 		</header>
 		<main
 			id="main"
-			class="max-w-[min(100%,80ch)] w-full  mt-4 sm:mt-12"
+			class="max-w-[min(100%,80ch)] w-full mt-4 sm:mt-12"
 		>
 			<slot />
 		</main>
