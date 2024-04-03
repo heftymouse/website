@@ -10,7 +10,7 @@ A friend of mine received an interesting WhatsApp message recently.
 
 A phishing scam of some kind. Let's look inside the APK.
 
-Interestingly, it isn't a native Android app. It's made with [Capacitor](https://capacitorjs.com/), with a native component. This means it's possible view the complete UI of the app on any browser (with JS disabled of course!).
+Interestingly, it isn't a native Android app. It's made with [Capacitor](https://capacitorjs.com/), with a native component. This means it's possible to view the complete UI of the app on any browser (with JS disabled of course!).
 
 ![main login screen](./img/main.png)
 ![date of birth entry screen](./img/dob.png)
@@ -18,7 +18,7 @@ Interestingly, it isn't a native Android app. It's made with [Capacitor](https:/
 
 It's clearly trying to replicate the official OnlineSBI website. After you 'login', you're taken through a series of steps where you enter various types of personal information as 'KYC', complete with fake loading screens in the middle. Each step logs the submitted information to a Firebase Realtime Database. This is completely unauthenticated, so opening `https://something-default-rtdb.firebaseio.com/.json` in a browser leaks all of their collected data. Depressingly, there's quite a lot of legit-looking information.
 
-Let's move on to the native Android part. Looking at the manifest, there's a few concerning permissions:
+Let's move on to the native Android part. Looking at the manifest with [jadx](https://github.com/skylot/jadx), there's a few concerning permissions:
 
 ![permissions from manifest file](./img/permissions.png)
 
