@@ -11,9 +11,9 @@ const { title, noindex, description } =
 	((Astro.props as any)['frontmatter'] as Props) || Astro.props;
 ---
 
-<BaseLayout centerContent={false} title={title} description={description}>
+<BaseLayout title={title} description={description}>
 	{noindex && <meta slot="head" name="robots" content="noindex" />}
-	<div class="content grid">
+	<div class="content text-pretty">
 		<slot />
 	</div>
 </BaseLayout>

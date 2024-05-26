@@ -30,7 +30,7 @@ const { title, embedTitle, description } =
 		<slot name="head" />
 	</head>
 	<body
-		class="grid min-h-[100vh] grid-rows-[auto_1fr] justify-items-center bg-background p-8 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8"
+		class="grid min-h-[100vh] grid-rows-[auto_1fr] justify-items-center bg-background p-8 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8 max-w-[100vw]"
 	>
 		<a class="absolute -left-52 top-0 m-3 focus:left-0 print:hidden" href="#main">
 			Skip to content
@@ -41,7 +41,7 @@ const { title, embedTitle, description } =
 		</header>
 		<main
 			id="main"
-			class="max-w-[min(100%,80ch)] w-full mt-4 sm:mt-12"
+			class="overflow-hidden max-w-[min(100%,80ch)] w-full mt-4 sm:mt-12"
 		>
 			<slot />
 		</main>

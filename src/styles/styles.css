@@ -82,6 +82,9 @@
 		border-color: var(--dividerStroke);
 		border-width: 1px;
 	}
+	/* * {
+		outline: 1px solid red;
+	} */
 }
 
 @layer components {
@@ -92,7 +95,7 @@
 		margin-bottom: 0.8rem;
 	}
 	.content > :not(h1, h2, h3, h4, h5, h6) {
-		margin-bottom: 1.8rem;
+		margin-bottom: 1.6rem;
 	}
 	.content > :has(+ hr) {
 		margin-bottom: 1rem;
@@ -131,7 +134,7 @@
 		display: block;
 		content: '';
 		width: 4px;
-		height: 1.5rem;
+		height: 1.2rem;
 		margin-right: 8px;
 		background: var(--accentFill);
 		border-radius: 9999px;

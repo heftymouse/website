@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { formatDate } from '../../lib/date';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentLayout from '../../layouts/ContentLayout.astro';
 
 interface Props {
 	entry: CollectionEntry<'blog'>;
@@ -22,7 +23,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<ContentLayout title={entry.data.title} description={entry.data.description}>
 	<h1>{entry.data.title}</h1>
 	<span class="text-neutral-500 dark:text-neutral-400">
 		{formatDate(entry.data.date, true)}
