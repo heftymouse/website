@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import cloudflare from '@astrojs/cloudflare';
@@ -17,15 +17,8 @@ export default defineConfig({
 	],
 	markdown: {
 		shikiConfig: {
-			theme: 'github-dark'
+			theme: 'vesper'
 		}
 	},
-	adapter: cloudflare({
-		imageService: 'compile'
-	}),
-	vite: {
-		ssr: {
-			noExternal: ['path-to-regexp']
-		}
-	}
+	adapter: cloudflare()
 });

@@ -2,14 +2,9 @@
 export const prerender = false;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import type { D1Database, IncomingRequestCfProperties } from '@cloudflare/workers-types';
 import { postGuestbookWebhook } from '../lib/discord';
 import { formatDate } from '../lib/date';
 import { verifyChallenge } from '../lib/turnstile';
-
-interface Env  {
-	DB: D1Database;
-}
 
 interface Entry {
 	name: string;
@@ -20,7 +15,6 @@ interface Entry {
 
 const req = Astro.request;
 const runtime = Astro.locals.runtime;
-const env = runtime.env as unknown as Env;
 
 if (
 	req.method === 'POST' &&
@@ -28,37 +22,43 @@ if (
 ) {
 	const data = new URLSearchParams(await req.text());
 
-	if(!(await verifyChallenge(data.get('cf-turnstile-response') ?? '', Astro.clientAddress)))
-		return;
-
-	const name = data.get('name')?.trim();
-	const url = data.get('link')?.trim() ?? '';
-	const message = data.get('message')?.trim() ?? '';
-	const anon = data.get('anonymous') === 'on';
 	if (
-		name &&
-		name?.length <= 64 &&
-		(!url || url.includes('://')) &&
-		url.length <= 128 &&
-		message.length <= 320
+		await verifyChallenge(
+			runtime.env.TURNSTILE_SECRET_KEY,
+			data.get('cf-turnstile-response') ?? '',
+			Astro.clientAddress
+		)
 	) {
-		const timestamp = Date.now();
-		postGuestbookWebhook(
-			name,
-			url,
-			message,
-			timestamp,
-			Astro.clientAddress,
-			(runtime.cf as IncomingRequestCfProperties).country ?? 'None',
-			req.headers.get('User-Agent') ?? 'Unavailable'
-		);
-		await env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
-			.bind(anon ? '(anon)' : name, timestamp, url, message)
-			.run();
+		const name = data.get('name')?.trim();
+		const url = data.get('link')?.trim() ?? '';
+		const message = data.get('message')?.trim() ?? '';
+		const anon = data.get('anonymous') === 'on';
+		if (
+			name &&
+			name?.length <= 64 &&
+			(!url || url.includes('://')) &&
+			url.length <= 128 &&
+			message.length <= 320
+		) {
+			const timestamp = Date.now();
+			postGuestbookWebhook(
+				runtime.env.WEBHOOK_URL,
+				name,
+				url,
+				message,
+				timestamp,
+				Astro.clientAddress,
+				(runtime.cf?.country as string) ?? 'None',
+				req.headers.get('User-Agent') ?? 'Unavailable'
+			);
+			await runtime.env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
+				.bind(anon ? '(anon)' : name, timestamp, url, message)
+				.run();
+		}
 	}
 }
 
-const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
+const result = (await runtime.env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
 	.results as unknown as Entry[] | null;
 ---
 
@@ -90,11 +90,18 @@ const result = (await env.DB.prepare('SELECT * FROM entries ORDER BY timestamp D
 			</div>
 			<div class="cf-turnstile" data-sitekey="0x4AAAAAAAIkiKaNNrmrks99"></div>
 			<small class="text-caption italic">
-				When you press Submit, your IP address, derived country code, and user agent will be logged
-				for spam detection purposes. If you'd like this to be deleted (or your entry modified or
-				removed), contact me using any of the links at the <a href="/">homepage</a>.
+				When you press Submit, your IP address, derived country code, and user agent will be
+				logged for spam detection purposes. If you'd like this to be deleted (or your entry
+				modified or removed), contact me using any of the links at the <a href="/"
+					>homepage</a
+				>.
 			</small>
-			<input class="mt-3 justify-self-center" id="submitButton" type="submit" value="Submit" />
+			<input
+				class="mt-3 justify-self-center"
+				id="submitButton"
+				type="submit"
+				value="Submit"
+			/>
 		</form>
 		<hr class="mb-3" />
 		<ul class="grid gap-1">

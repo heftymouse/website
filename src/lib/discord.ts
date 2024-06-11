@@ -1,4 +1,4 @@
-export async function postGuestbookWebhook(name: string, url: string, message: string, timestamp: number, ip: string, country: string, ua: string) {
+export async function postGuestbookWebhook(webhookUrl: string, name: string, url: string, message: string, timestamp: number, ip: string, country: string, ua: string) {
     const m = JSON.stringify({
         content: '<@684428788481917044> New guestbook message',
         embeds: [
@@ -25,7 +25,7 @@ export async function postGuestbookWebhook(name: string, url: string, message: s
             }
         ]
     });
-    const res = await fetch(import.meta.env.WEBHOOK_URL, {
+    const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
