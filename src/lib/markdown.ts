@@ -1,14 +1,15 @@
-import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeSanitize, { Root } from 'rehype-sanitize';
+import rehypeSanitize from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
+import { unified } from 'unified';
+import type { Root } from 'hast';
 
 // TODO: make callout (note, warn etc.) plugin
 
 export async function renderPost(content: string, root: URL): Promise<string> {
-	const rendered = await remark()
+	const rendered = await unified()
 		.use(remarkParse)
 		.use(remarkRehype)
 		.use(makeLinksAbsolute, root)
@@ -19,7 +20,6 @@ export async function renderPost(content: string, root: URL): Promise<string> {
 	return String(rendered);
 }
 
-/** @type {import('unified').Plugin<[URL], import('hast').Root>} */
 function makeLinksAbsolute(root: URL) {
 	return (tree: Root) => {
 		visit(tree, 'element', (node) => {
