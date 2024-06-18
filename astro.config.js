@@ -17,7 +17,7 @@ export default defineConfig({
 	],
 	markdown: {
 		shikiConfig: {
-			theme: 'vesper'
+			theme: 'dark-plus'
 		}
 	},
 	adapter: cloudflare()

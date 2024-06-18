@@ -1,13 +1,13 @@
 ---
-layout: '../layouts/ContentLayout.astro'
+layout: '@layouts/ContentLayout.astro'
 title: About
 ---
 
 # About me
 
-My name is Nikhil. I am currently 18 years old, pursuing a bachelor's degree in Computer Science and Engineering.
+My name is Nikhil. I am currently 18 years old, pursuing a bachelor's degree in Computer Science.
 
-Technology is fascinating, as I'm sure you agree. I love learning about all aspects of computing. However, the specialization I've decided to marry for now is Windows development — primarily with C# and WinUI. It's not an especially popular thing to do right now, with Deep Learning trending and web tech having been the staple choice for desktop app development for about a decade now. Regardless, I enjoy the idea of creating a quality user experience that fits with the platform. I want to bring a certain 'macOS native app' vibe (seen in the likes of [Arc](https://arc.net)). Unfortunately, other factors often conflict with that goal, but I try :p
+Technology is fascinating, as I'm sure you agree. I love learning about all aspects of computing. However, the specialization I've decided to marry for now is Windows development — primarily with C# and WinUI. It's not an especially popular thing to do right now, with Deep Learning trending and web tech having been the staple choice for desktop app development for about a decade now. Regardless, I enjoy the idea of creating a quality user experience that fits with the platform. I want to bring a certain 'macOS native app' vibe (seen in the likes of [Arc](https://arc.net)).
 
 I'm also interested in Discord bots and the Discord API. It's been a major part of my life since 2020, and is what kickstarted my journey in computing. It's been a while since I last did something major with it, but I'm eager to return once I find something interesting to do.
 

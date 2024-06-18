@@ -92,7 +92,7 @@
 		line-height: 1.85rem;
 	}
 	.content > :is(h1, h2, h3, h4, h5, h6) {
-		margin-bottom: 0.8rem;
+		margin-bottom: 0.6rem;
 	}
 	.content > :not(h1, h2, h3, h4, h5, h6) {
 		margin-bottom: 1.6rem;
@@ -102,6 +102,9 @@
 	}
 	.content > hr {
 		margin-bottom: 1rem;
+	}
+	.content > :has(+ ul, ol) {
+		margin-bottom: 0.5rem;
 	}
 	.content > ul {
 		list-style: disc outside;

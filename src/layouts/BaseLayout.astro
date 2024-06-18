@@ -1,8 +1,8 @@
 ---
 import '../styles/styles.css';
 import '../styles/variables.css';
-import NavBar from '../components/NavBar.astro';
-import CompactNavBar from '../components/CompactNavBar.astro';
+import NavBar from '@components/NavBar.astro';
+import CompactNavBar from '@components/CompactNavBar.astro';
 
 interface Props {
 	title?: string;
@@ -21,6 +21,7 @@ const { title, embedTitle, description } =
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{`${title ? `${title} - ` : ''}heftymouse`}</title>
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 		<meta name="description" content={description ?? "heftymouse's home on the internet."} />
 		<meta name="og:title" content={embedTitle ?? title ?? 'heftymouse'} />
 		<meta name="og:url" content={Astro.url} />

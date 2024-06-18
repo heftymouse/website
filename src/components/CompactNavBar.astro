@@ -9,8 +9,8 @@ import HamburgerIcon from './icons/HamburgerIcon.astro';
 		<HamburgerIcon size={24} class="stroke-text" />
 	</button>
 </div>
-<nav id="mobileNav" class="absolute left-0 top-0 h-screen w-full sm:hidden" hidden>
-	<div class="w-full p-8 pb-4 backdrop-blur-md">
+<nav id="mobileNav" class="absolute left-0 top-0 h-screen w-full backdrop-blur-md sm:hidden" hidden>
+	<div class="w-full p-8 pb-4 bg-background">
 		<button id="mobileNavClose" class="float-right -mr-3 border-none bg-transparent">
 			<CloseIcon size={24} class="stroke-text" />
 		</button>
@@ -22,7 +22,10 @@ import HamburgerIcon from './icons/HamburgerIcon.astro';
 							href={e[1]}
 							class="flex flex-row items-center p-2 text-text hover:no-underline"
 							class:list={[
-								{ 'nav-selected-vertical': e[1].substring(1) === Astro.url.pathname.split('/')[1] }
+								{
+									'nav-selected-vertical':
+										e[1].substring(1) === Astro.url.pathname.split('/')[1]
+								}
 							]}
 						>
 							{e[0]}

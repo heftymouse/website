@@ -1,8 +1,8 @@
-export type Routes = 'Home' | 'About' | 'Projects' | 'Guestbook' | 'Blog';
+export type Routes = 'Home' | 'Info' | 'Projects' | 'Guestbook' | 'Blog';
 
 export const links: Record<Routes, string> = {
 	Home: '/',
-	About: '/about',
+	Info: '/info',
 	Projects: '/projects',
 	Blog: '/blog',
 	Guestbook: '/guestbook'

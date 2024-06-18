@@ -5,11 +5,11 @@ import { formatDate } from '../../lib/date';
 import ContentLayout from '@layouts/ContentLayout.astro';
 
 interface Props {
-	entry: CollectionEntry<'blog'>;
+	entry: CollectionEntry<'updates'>;
 }
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection('blog');
+	const blogEntries = await getCollection('updates');
 	return blogEntries.map((e) => ({
 		params: {
 			slug: e.slug

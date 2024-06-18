@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import { postGuestbookWebhook } from '../lib/discord';
 import { formatDate } from '../lib/date';
 import { verifyChallenge } from '../lib/turnstile';
@@ -109,7 +109,7 @@ const result = (await runtime.env.DB.prepare('SELECT * FROM entries ORDER BY tim
 				result?.map((e) => (
 					<li class="card grid items-center gap-y-1 p-4">
 						{e.url ? (
-							<a class="row-start-1" rel="ugc" href={e.url}>
+							<a class="row-start-1" rel="ugc" href={e.url} target="_blank">
 								<h2 class="text-h4">{e.name}</h2>
 							</a>
 						) : (

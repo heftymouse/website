@@ -1,6 +1,6 @@
 ---
-import ProjectCard from '../components/ProjectCard.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '@components/ProjectCard.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Projects">
@@ -79,9 +79,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				github="files-community/Files"
 				link="https://files.community"
 			>
-				I've helped add a handful of features to this app. Some of the highlights are swipe
-				gestures for back/forward navigation, a GitHub action to automatically format Xaml
-				files in pull requests, and support for changing system backdrop.
+				I've helped add a handful of features to this app. Some of the highlights are:
+				<ul class="mt-2 list-disc list-inside leading-relaxed">
+					<li>Swipe gestures for back/forward navigation</li>
+					<li>A Composition-based operation speed graph</li>
+					<li>A GitHub action to automatically format Xaml files in PRs</li>
+					<li>Support for changing system backdrop</li>
+				</ul>
 			</ProjectCard>
 		</li>
 		<li>
