@@ -1,6 +1,9 @@
-export async function verifyChallenge(secret: string, token: string, ip: string): Promise<boolean> {
+export async function verifyChallenge(env: Env, token: string, ip: string): Promise<boolean> {
+	if(env.NODE_ENV !== 'production')
+		return true;
+
     let formData = new URLSearchParams();
-	formData.append('secret', secret);
+	formData.append('secret', env.TURNSTILE_SECRET_KEY);
 	formData.append('response', token);
 	formData.append('remoteip', ip);
     const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';

@@ -16,6 +16,10 @@ interface Entry {
 const req = Astro.request;
 const runtime = Astro.locals.runtime;
 
+function sanitize(input: string) {
+	return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 if (
 	req.method === 'POST' &&
 	req.headers.get('Content-Type') === 'application/x-www-form-urlencoded'
@@ -24,14 +28,14 @@ if (
 
 	if (
 		await verifyChallenge(
-			runtime.env.TURNSTILE_SECRET_KEY,
+			runtime.env,
 			data.get('cf-turnstile-response') ?? '',
 			Astro.clientAddress
 		)
 	) {
-		const name = data.get('name')?.trim();
-		const url = data.get('link')?.trim() ?? '';
-		const message = data.get('message')?.trim() ?? '';
+		const name = sanitize(data.get('name')?.trim() ?? '');
+		const url = sanitize(data.get('link')?.trim() ?? '');
+		const message = sanitize(data.get('message')?.trim() ?? '');
 		const anon = data.get('anonymous') === 'on';
 		if (
 			name &&
@@ -42,7 +46,7 @@ if (
 		) {
 			const timestamp = Date.now();
 			postGuestbookWebhook(
-				runtime.env.WEBHOOK_URL,
+				runtime.env,
 				name,
 				url,
 				message,
@@ -51,6 +55,7 @@ if (
 				(runtime.cf?.country as string) ?? 'None',
 				req.headers.get('User-Agent') ?? 'Unavailable'
 			);
+			// CREATE TABLE entries (name TEXT, timestamp INTEGER, url TEXT, message TEXT)
 			await runtime.env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
 				.bind(anon ? '(anon)' : name, timestamp, url, message)
 				.run();
