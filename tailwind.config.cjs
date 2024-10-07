@@ -10,6 +10,7 @@ module.exports = {
 			colors: {
 				background: 'var(--background)',
 				text: 'var(--foreground)',
+				'secondary': 'var(--textSecondary)',
 				'accent-fill': 'var(--accentFill)',
 				'accent-text': 'var(--accentText)',
 				'card-fill': 'var(--cardFill)',
