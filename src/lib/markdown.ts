@@ -60,7 +60,6 @@ export function addTitleAndCaption() {
 				};
 				(parent as HastElement).tagName = 'div';
 				parent.children[index] = figure;
-				console.log(parent)
 			}
 		})
 	}
