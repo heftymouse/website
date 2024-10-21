@@ -12,17 +12,17 @@ This was inspired by [polarhive](https://polarhive.net/blog/app-defaults), in tu
 - 📝 Notes - Notion
 - ✅ To-Do - Notion
 - 📷 Photo Shooting - GCam on Pixel 6a
-- 🟦 Photo Management - Google Photos (maybe [immich](https://github.com/immich-app/immich) in the future?)
+- 🟦 Photo Management - Google Photos (maybe [immich](https://github.com/immich-app/immich) eventually?)
 - 📆 Calendar - I don't plan things
 - 📁 Cloud File Storage - OneDrive but only for sharing stuff with classmates
-- 📖 RSS - miniflux (for now!)
+- 📖 RSS - miniflux
 - 🙍🏻‍♂️ Contacts - Google Contacts
 - 🌐 Browser - Edge
 - 💬 Chat - Discord, Whatsapp, Telegram, Google Pay
-- 🔖 Bookmarks - Notion, [Shrish's](https://shrishdeshpande.net) DMs
+- 🔖 Bookmarks - Notion, [Shrish's](https://shrishdeshpande.com) DMs
 - 📑 Read It Later - I just read it right now 💪 (actually Omnivore)
 - 🔠 Font - Inter, Manrope, Public Sans
-- 📝 Plaintext Editing - VSCode, Notepad, nano
+- 📝 Plaintext Editing - VSCode, micro
 - 📜 Word Processing - HTML (actually!), Markdown, occasionally LaTeX
 - 📈 Spreadsheets - Excel
 - 📊 Presentations - PowerPoint

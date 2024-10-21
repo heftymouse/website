@@ -1,8 +1,8 @@
-module.exports = {
+export default {
     plugins: {
         'postcss-import': {},
         tailwindcss: {},
         autoprefixer: {},
-        ...(import.meta.env.MODE === 'production' ? { cssnano: {} } : {})
+        ...(process.env.PROD ? { cssnano: {} } : {})
     }
 };

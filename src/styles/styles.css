@@ -115,7 +115,13 @@
 		max-height: 32rem;
 		width: auto;
 	}
-	.content > :has(> img) {
+
+	.content figcaption {
+		font-style: italic;
+		text-align: center;
+	}
+
+	.content > :has(> :is(img, figure)) {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

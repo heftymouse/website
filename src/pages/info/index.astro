@@ -1,0 +1,26 @@
+---
+import ProjectCard from '@components/ProjectCard.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Projects">
+	<h1 class="mb-4">Info</h1>
+	<ul class="nolist mb-6 grid gap-1">
+		<li>
+			<a href="/info/uses" class="text-inherit hover:no-underline">
+				<article class="card w-full p-4 leading-snug">
+					<h2 class="mb-2 text-h4">Tech I use</h2>
+					You'd expect a tech person to be opinionated about the tools they use. Here's some of my highlights.
+				</article>
+			</a>
+		</li>
+		<li>
+			<a href="/info/app-defaults" class="text-inherit hover:no-underline">
+				<article class="card w-full p-4 leading-snug">
+					<h2 class="mb-2 text-h4">App Defaults</h2>
+					That list from Hemispheric Views.
+				</article>
+			</a>
+		</li>
+	</ul>
+</BaseLayout>
