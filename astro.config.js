@@ -22,5 +22,19 @@ export default defineConfig({
 		},
 		rehypePlugins: [addTitleAndCaption]
 	},
-	adapter: cloudflare()
+	vite: {
+		build: {
+			rollupOptions: {
+				output: {
+					hashCharacters: 'hex'
+				}
+			}
+		},
+		ssr: {
+			external: ['node:fs/promises', 'node:path', '@node-rs/xxhash']
+		}
+	},
+	adapter: cloudflare({
+		imageService: 'compile',
+	})
 });

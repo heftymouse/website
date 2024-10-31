@@ -6,8 +6,8 @@ import { renderPost } from '../../lib/markdown';
 
 export async function GET(ctx: APIContext) {
 	const items = (await createItems(ctx, 'blog'))
-	.concat(await createItems(ctx, 'updates'))
-	.sort((a, b) => b.pubDate!.getTime() - a.pubDate!.getTime());
+		.concat(await createItems(ctx, 'updates'))
+		.sort((a, b) => b.pubDate!.getTime() - a.pubDate!.getTime());
 
 	return rss({
 		xmlns: {
@@ -31,7 +31,7 @@ async function createItems(ctx: APIContext, name: keyof ContentEntryMap): Promis
 				pubDate: e.data.date,
 				description: e.data.description,
 				link: `/${name}/${e.slug}`,
-				content: await renderPost(e.body, ctx.site ?? new URL('https://heftymouse.me'))
+				content: await renderPost(e.body, ctx.site ?? new URL('https://heftymouse.me'), name, e.slug)
 			} as RSSFeedItem;
 		})
 	);
