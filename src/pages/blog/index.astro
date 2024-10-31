@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { formatDate } from '../../lib/date';
-import RssIcon from '@components/icons/RssIcon.astro';
+import RssIcon from '@/components/icons/RssIcon.astro';
 
 const collection = (await getCollection('blog'))
 	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
