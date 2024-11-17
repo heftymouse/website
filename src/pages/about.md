@@ -5,7 +5,7 @@ title: About
 
 # About me
 
-My name is Nikhil. I am currently 18 years old, pursuing a bachelor's degree in Computer Science.
+My name is Nikhil. I am currently 19 years old, pursuing a bachelor's degree in Computer Science.
 
 Technology is fascinating, as I'm sure you agree. I love learning about all aspects of computing. However, the specialization I've decided to marry for now is Windows development — primarily with C# and WinUI. It's not an especially popular thing to do right now, with Deep Learning trending and web tech having been the staple choice for desktop app development for about a decade now. Regardless, I enjoy the idea of creating a quality user experience that fits with the platform. I want to bring a certain 'macOS native app' vibe (seen in the likes of [Arc](https://arc.net)).
 

@@ -86,15 +86,7 @@ function fixImages(collection: string, slug: string) {
 			const data = await fs.readFile(filePath) as unknown as Uint8Array;
 			let hash = xxh3.xxh128(data).toString(16).match(/.{2}/g)!.reverse().join(''); // weird way to turn it into little endian
 
-			// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			const actualBase16 = '0123456789abcdef';
-			const cursedRollupBase16 = 'abcdef0123456789'
-			let newHash = '';
-			for(let i = 0; i < hash.length; i++) {
-				newHash += cursedRollupBase16[actualBase16.indexOf(hash[i])];
-			}
-
-			e.properties.src = `/_astro/${parsedPath.name}.${newHash.slice(0, 8)}${parsedPath.ext}`;
+			e.properties.src = `/_astro/${parsedPath.name}.${hash.slice(0, 8)}${parsedPath.ext}`;
 		}))
 	};
 }
