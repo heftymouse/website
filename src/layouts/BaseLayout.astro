@@ -32,7 +32,7 @@ const { title, embedTitle, description } =
 		<slot name="head" />
 	</head>
 	<body
-		class="grid min-h-[100vh] grid-rows-[auto_1fr] justify-items-center bg-background p-8 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8 max-w-[100vw]"
+		class="grid min-h-[100vh] max-w-[100vw] grid-rows-[auto_1fr] justify-items-center bg-background p-8 supports-[height:_1dvh]:min-h-[100dvh] sm:p-8"
 	>
 		<slot name="body-root" />
 		<a class="absolute -left-52 top-0 m-3 focus:left-0 print:hidden" href="#main">
@@ -42,23 +42,23 @@ const { title, embedTitle, description } =
 			<NavBar />
 			<CompactNavBar />
 		</header>
-		<main
-			id="main"
-			class="overflow-hidden max-w-[min(100%,80ch)] w-full mt-4 sm:mt-12"
-		>
+		<main id="main" class="mt-4 w-full max-w-[min(100%,80ch)] overflow-hidden sm:mt-12">
 			<slot />
 		</main>
 		<footer class="mt-8 flex flex-row gap-4 text-neutral-500">
 			<a href="https://amrita.town" class="text-neutral-500 underline">amrita.town</a>
 			<p class="mx-2 select-none">•</p>
 			<a href="https://amrita.town/prev" class="text-neutral-500">
-				<span>←</span> <span class="hidden sm:inline">prev</span>
+				<span>←</span>
+				<span class="hidden sm:inline">prev</span>
 			</a>
 			<a href="https://amrita.town/random" class="text-neutral-500">
-				<span>⚄</span> <span class="hidden sm:inline">random</span>
+				<span>⚄</span>
+				<span class="hidden sm:inline">random</span>
 			</a>
 			<a href="https://amrita.town/next" class="text-neutral-500">
-				<span class="hidden sm:inline">next</span> <span>→</span>
+				<span class="hidden sm:inline">next</span>
+				<span>→</span>
 			</a>
 		</footer>
 	</body>

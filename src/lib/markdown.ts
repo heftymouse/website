@@ -5,7 +5,7 @@ import rehypeSanitize from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import { unified } from 'unified';
 import type { Root, Element as HastElement } from 'hast';
-import fs from 'node:fs/promises'
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import { xxh3 } from '@node-rs/xxhash';
 
@@ -65,8 +65,8 @@ export function addTitleAndCaption() {
 				(parent as HastElement).tagName = 'div';
 				parent!.children[index!] = figure;
 			}
-		})
-	}
+		});
+	};
 }
 
 function fixImages(collection: string, slug: string) {
@@ -79,14 +79,16 @@ function fixImages(collection: string, slug: string) {
 			}
 		});
 
-		await Promise.all(imgs.map(async e => {
-			const filePath = `./src/content/${collection}/${slug}/${e.properties.src}`;
-			const parsedPath = path.parse(filePath);
+		await Promise.all(
+			imgs.map(async (e) => {
+				const filePath = `./src/content/${collection}/${slug}/${e.properties.src}`;
+				const parsedPath = path.parse(filePath);
 
-			const data = await fs.readFile(filePath) as unknown as Uint8Array;
-			let hash = xxh3.xxh128(data).toString(16).match(/.{2}/g)!.reverse().join(''); // weird way to turn it into little endian
+				const data = (await fs.readFile(filePath)) as unknown as Uint8Array;
+				let hash = xxh3.xxh128(data).toString(16).match(/.{2}/g)!.reverse().join(''); // weird way to turn it into little endian
 
-			e.properties.src = `/_astro/${parsedPath.name}.${hash.slice(0, 8)}${parsedPath.ext}`;
-		}))
+				e.properties.src = `/_astro/${parsedPath.name}.${hash.slice(0, 8)}${parsedPath.ext}`;
+			})
+		);
 	};
 }

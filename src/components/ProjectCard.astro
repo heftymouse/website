@@ -1,8 +1,6 @@
 ---
-import githubLogoLight from '@assets/github-mark.svg';
-import githubLogo from '@assets/github-mark-white.svg';
-import linkIconLight from '@assets/link.svg';
-import linkIcon from '@assets/link-white.svg';
+import GitHubIcon from '@/components/icons/GitHubIcon.astro';
+import LinkIcon from '@/components/icons/LinkIcon.astro';
 
 interface Props {
 	name: string;
@@ -13,45 +11,26 @@ interface Props {
 const { name, time, link, github } = Astro.props;
 ---
 
-<article class="card w-full p-4 leading-snug">
-	<div class="mb-2 flex flex-row items-center justify-between">
-		<h3 class="text-h4 leading-tight">{name}</h3>
-		<div class="hidden flex-row items-center md:flex">
-			<span
-				class="text-neutral-500 dark:text-neutral-400"
-				style={`display: ${time ? 'inline' : 'none'}`}>{time} &nbsp;•&nbsp;&nbsp;</span
-			>
-			<a href={link} style={`display: ${link ? 'block' : 'none'}`} class="mr-3">
-				<picture>
-					<source srcset={linkIcon.src} media="(prefers-color-scheme: dark)" />
-					<img src={linkIconLight.src} alt="Link" class="h-[1.4rem]" />
-				</picture>
-			</a>
-			<a href={`https://github.com/${github}`} style={`display: ${github ? 'block' : 'none'}`}>
-				<picture>
-					<source srcset={githubLogo.src} media="(prefers-color-scheme: dark)" />
-					<img src={githubLogoLight.src} alt="GitHub" class="h-[1.4rem]" />
-				</picture>
-			</a>
-		</div>
+<article class="card grid w-full gap-y-3 p-4 leading-snug">
+	<h3 class="text-h4 leading-tight">{name}</h3>
+	<div class="col-start-2 row-start-3 flex flex-row items-center justify-end gap-3 md:row-start-1">
+		{
+			link && (
+				<a href={link} class:list={{ hidden: !link }}>
+					<LinkIcon class="mt-[2px] w-[1.2rem] text-text" />
+				</a>
+			)
+		}
+		{
+			github && (
+				<a href={`https://github.com/${github}`}>
+					<GitHubIcon class="h-[1.4rem] text-text" />
+				</a>
+			)
+		}
 	</div>
-	<slot />
-	<div class="mt-2 flex flex-row items-center md:hidden">
-		<span
-			class="text-neutral-500 dark:text-neutral-400"
-			style={`display: ${time ? 'inline' : 'none'}`}>{time} &nbsp;•&nbsp;&nbsp;</span
-		>
-		<a href={`https://github.com/${github}`} style={`display: ${github ? 'block' : 'none'}`}>
-			<picture>
-				<source srcset={githubLogo.src} media="(prefers-color-scheme: dark)" />
-				<img src={githubLogoLight.src} alt="GitHub" class="h-[1.4rem]" />
-			</picture>
-		</a>
-		<a href={link} style={`display: ${link ? 'block' : 'none'}`} class="ml-3">
-			<picture>
-				<source srcset={linkIcon.src} media="(prefers-color-scheme: dark)" />
-				<img src={linkIconLight.src} alt="Link" class="h-[1.4rem]" />
-			</picture>
-		</a>
+	<div class="col-span-2">
+		<slot />
 	</div>
+	{time && <span class="text-caption text-neutral-500 dark:text-neutral-400">{time}</span>}
 </article>

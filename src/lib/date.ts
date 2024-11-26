@@ -1,11 +1,11 @@
 const options: Intl.DateTimeFormatOptions = {
-    dateStyle: "medium"
-}
+	dateStyle: 'medium'
+};
 
 const longOptions: Intl.DateTimeFormatOptions = {
-    dateStyle: "long"
-}
+	dateStyle: 'long'
+};
 
 export function formatDate(date: Date, long?: boolean): string {
-    return Intl.DateTimeFormat(undefined, long ? longOptions : options).format(date);
+	return Intl.DateTimeFormat(undefined, long ? longOptions : options).format(date);
 }

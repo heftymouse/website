@@ -121,6 +121,11 @@
 		text-align: center;
 	}
 
+	.content blockquote {
+		padding-left: 1rem;
+		border-left: 2px var(--dividerStroke) solid;
+	}
+
 	.content > :has(> :is(img, figure)) {
 		display: flex;
 		flex-wrap: wrap;
@@ -158,7 +163,7 @@
 		list-style: none;
 		margin-left: 0;
 	}
-	
+
 	main:has(> .notopmargin) {
 		@apply mt-0;
 	}

@@ -4,8 +4,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { formatDate } from '../../lib/date';
 import RssIcon from '@/components/icons/RssIcon.astro';
 
-const collection = (await getCollection('blog'))
-	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const collection = (await getCollection('blog')).sort(
+	(a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 ---
 
 <BaseLayout title="Blog">
@@ -27,7 +28,7 @@ const collection = (await getCollection('blog'))
 								{e.data.description}
 								<time
 									datetime={e.data.date.toISOString()}
-									class="text-caption mt-1 text-neutral-500 dark:text-neutral-400"
+									class="mt-1 text-caption text-neutral-500 dark:text-neutral-400"
 								>
 									{`${formatDate(e.data.date)}`}
 								</time>
