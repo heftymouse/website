@@ -23,7 +23,7 @@ const collection = (await getCollection('blog')).sort(
 				collection.map((e) => (
 					<li class="card p-4">
 						<article>
-							<a href={`/blog/${e.slug}`} class="flex flex-col text-inherit hover:no-underline">
+							<a href={`/blog/${e.id}`} class="flex flex-col text-inherit hover:no-underline">
 								<h2 class="text-h4">{e.data.title}</h2>
 								{e.data.description}
 								<time

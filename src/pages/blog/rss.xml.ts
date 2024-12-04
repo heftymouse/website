@@ -1,6 +1,6 @@
 import type { APIContext } from 'astro';
 import rss from '@astrojs/rss';
-import { getCollection, type ContentEntryMap } from 'astro:content';
+import { getCollection, type DataEntryMap } from 'astro:content';
 import type { RSSFeedItem } from '@astrojs/rss';
 import { renderPost } from '../../lib/markdown';
 
@@ -21,7 +21,7 @@ export async function GET(ctx: APIContext) {
 	});
 }
 
-async function createItems(ctx: APIContext, name: keyof ContentEntryMap): Promise<RSSFeedItem[]> {
+async function createItems(ctx: APIContext, name: keyof DataEntryMap): Promise<RSSFeedItem[]> {
 	const collection = await getCollection(name);
 
 	const items = await Promise.all(
@@ -30,8 +30,8 @@ async function createItems(ctx: APIContext, name: keyof ContentEntryMap): Promis
 				title: e.data.title,
 				pubDate: e.data.date,
 				description: e.data.description,
-				link: `/${name}/${e.slug}`,
-				content: await renderPost(e.body, ctx.site ?? new URL('https://heftymouse.me'), name, e.slug)
+				link: `/${name}/${e.id}`,
+				content: await renderPost(e.body!, ctx.site ?? new URL('https://heftymouse.me'), name, e.id)
 			} as RSSFeedItem;
 		})
 	);

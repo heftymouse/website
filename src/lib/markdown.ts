@@ -1,4 +1,4 @@
-import { CONTINUE, EXIT, SKIP, visit } from 'unist-util-visit';
+import { visit } from 'unist-util-visit';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeSanitize from 'rehype-sanitize';

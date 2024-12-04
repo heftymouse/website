@@ -4,6 +4,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import GitHubIcon from '@/components/icons/GitHubIcon.astro';
 import DiscordIcon from '@/components/icons/DiscordIcon.astro';
 import MailIcon from '@/components/icons/MailIcon.astro';
+import { renderPost } from '@/lib/markdown';
+import { getCollection } from 'astro:content';
+
+const content = (await getCollection('blog'))[0].body!
+const rendered = renderPost(content, Astro.url, 'blog', 'asdf')
 ---
 
 <BaseLayout
@@ -13,6 +18,7 @@ import MailIcon from '@/components/icons/MailIcon.astro';
 	<div class="notopmargin mx-auto flex h-full max-w-[24rem] flex-col justify-center">
 		<span class="-ml-2 mb-1 select-none text-h1">👋</span>
 		<h1 class="mb-3 leading-tight">Hey, I'm heftymouse</h1>
+		<div set:html={rendered}></div>
 		<div class="mb-5">
 			<p class="mb-3">I am a student and hobbyist software developer.</p>
 			<p class="mb-3">

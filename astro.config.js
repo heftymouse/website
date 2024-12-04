@@ -8,7 +8,6 @@ import { addTitleAndCaption } from './src/lib/markdown';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://heftymouse.me',
-	output: 'hybrid',
 	integrations: [
 		tailwind({
 			applyBaseStyles: false
