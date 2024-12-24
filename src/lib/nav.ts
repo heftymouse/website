@@ -1,10 +1,10 @@
-export type Routes = 'Home' | 'Info' | 'Projects' | 'Guestbook' | 'Blog';
-
-export const links: Record<Routes, string> = {
-	Home: '/',
+export const links = {
+	// Home: '/',
 	Info: '/info',
 	Projects: '/projects',
 	Blog: '/blog',
 	Guestbook: '/guestbook'
 	// "Other": "/other"
-};
+} as const;
+
+export type Routes = keyof typeof links

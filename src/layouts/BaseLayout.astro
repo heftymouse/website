@@ -38,11 +38,11 @@ const { title, embedTitle, description } =
 		<a class="absolute -left-52 top-0 m-3 focus:left-0 print:hidden" href="#main">
 			Skip to content
 		</a>
-		<header class="w-full sm:w-fit">
-			<NavBar />
-			<CompactNavBar />
+		<header class="w-full max-w-[min(100%,80ch)]">
+			<NavBar minimal={Astro.url.pathname === '/'} />
+			<CompactNavBar minimal={Astro.url.pathname === '/'} />
 		</header>
-		<main id="main" class="mt-4 w-full max-w-[min(100%,80ch)] overflow-hidden sm:mt-12">
+		<main id="main" class="mt-8 w-full max-w-[min(100%,80ch)] overflow-hidden sm:mt-8">
 			<slot />
 		</main>
 		<footer class="mt-8 flex flex-row gap-4 text-neutral-500">

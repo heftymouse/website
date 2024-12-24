@@ -31,10 +31,6 @@ export default defineConfig({
 		},
 		ssr: {
 			external: ['node:fs/promises', 'node:path', '@node-rs/xxhash'],
-			// hack to fix unified (REMOVE ON NEXT UPDATE)
-			resolve: {
-				conditions: ['worker']
-			}
 		}
 	},
 	adapter: cloudflare({

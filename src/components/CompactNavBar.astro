@@ -1,19 +1,30 @@
 ---
 import { links } from '../lib/nav';
-import CloseIcon from './icons/CloseIcon.astro';
 import HamburgerIcon from './icons/HamburgerIcon.astro';
+import LedgerIcon from './icons/LedgerIcon.astro';
+
+interface Props {
+	minimal?: boolean
+}
+
+const { minimal } = Astro.props;
 ---
 
-<div class="flex w-full flex-row justify-end sm:hidden">
-	<button id="mobileNavButton" class="-mr-3 border-none bg-transparent">
-		<HamburgerIcon size={24} class="stroke-text" />
+<div class="grid grid-rows-[2rem] w-full sm:hidden">
+	{
+		!minimal && (
+			<a href="/" class="text-text row-start-1 flex flex-row items-center gap-1">
+				<LedgerIcon class="h-5/6 -ml-0.5" />
+				<p class="text-h5">heftymouse</p>
+			</a>
+		)
+	}
+	<button id="mobileNavButton" class="row-start-1 justify-self-end -mr-3 border-none bg-transparent">
+		<HamburgerIcon class="h-full stroke-text" />
 	</button>
 </div>
-<nav id="mobileNav" class="absolute left-0 top-0 h-screen w-full backdrop-blur-md sm:hidden" hidden>
-	<div class="w-full bg-background p-8 pb-4">
-		<button id="mobileNavClose" class="float-right -mr-3 border-none bg-transparent">
-			<CloseIcon size={24} class="stroke-text" />
-		</button>
+<nav id="mobileNav" class="absolute left-0 top-0 h-screen w-full backdrop-blur-md bg-neutral-600 bg-opacity-10 sm:hidden" hidden>
+	<div class="w-fit mt-8 ml-auto mr-6 bg-background p-2 min-w-32 rounded-md border border-control-stroke">
 		<ul class="flex flex-col">
 			{
 				Object.entries(links).map((e, i) => (
@@ -44,9 +55,5 @@ import HamburgerIcon from './icons/HamburgerIcon.astro';
 		if (e.target === e.currentTarget) {
 			(e.currentTarget as HTMLElement).hidden = true;
 		}
-	});
-
-	document.querySelector('#mobileNavClose')?.addEventListener('click', (e) => {
-		(document.querySelector('#mobileNav') as HTMLElement).hidden = true;
 	});
 </script>
