@@ -46,6 +46,22 @@ const { minimal } = Astro.props;
 		</ul>
 	</div>
 </nav>
+
+<style>
+.nav-selected-vertical {
+    margin-left: -12px;
+    &::before {
+      display: block;
+      content: '';
+      width: 4px;
+      height: 1.2rem;
+      margin-right: 8px;
+      background: var(--accentFill);
+      border-radius: 9999px;
+    }
+}
+</style>
+
 <script>
 	document.querySelector('#mobileNavButton')?.addEventListener('click', () => {
 		(document.querySelector('#mobileNav') as HTMLElement).hidden = false;

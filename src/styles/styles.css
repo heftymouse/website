@@ -1,6 +1,111 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+	--radius-control: 4px;
+	--radius-surface: 8px;
+
+	--color-background: var(--background);
+	--color-text: var(--foreground);
+	--color-secondary: var(--textSecondary);
+	--color-accent-fill: var(--accentFill);
+	--color-accent-text: var(--accentText);
+	--color-card-fill: var(--cardFill);
+	--color-card-stroke: var(--cardStroke);
+	--color-divider-stroke: var(--dividerStroke);
+	--color-control-fill: var(--controlFill);
+	--color-control-stroke: var(--controlStroke);
+
+	--text-caption: 0.85rem, 1rem;
+	--text-body: 1rem, 1.62rem;
+	--text-h6: 1.15rem;
+	--text-h6--line-height: 1.75rem;
+	--text-h6--font-weight: 600;
+	--text-h5: 1.35rem;
+	--text-h5--line-height: 1.5rem;
+	--text-h5--font-weight: 600;
+	--text-h4: 1.5rem;
+	--text-h4--line-height: 2rem;
+	--text-h4--font-weight: 600;
+	--text-h3: 1.6rem;
+	--text-h3--line-height: 2.3rem;
+	--text-h3--font-weight: 600;
+	--text-h2: 2rem;
+	--text-h2--line-height: 3.2rem;
+	--text-h2--font-weight: 600;
+	--text-h1: 2.4rem;
+	--text-h1--line-height: 3.5rem;
+	--text-h1--font-weight: 600;
+}
+
+@utility card {
+  background-color: var(--color-card-fill);
+  border-radius: var(--radius-control);
+  border: 1px solid var(--color-card-stroke);
+}
+
+@layer components {
+	.content {
+		line-height: 1.85rem;
+		& > :is(h1, h2, h3, h4, h5, h6) {
+			margin-bottom: 0.6rem;
+		}
+		& > :not(h1, h2, h3, h4, h5, h6) {
+			margin-bottom: 1.6rem;
+		}
+		& > :has(+ hr) {
+			margin-bottom: 1rem;
+		}
+		& > hr {
+			margin-bottom: 1rem;
+		}
+		& > :has(+ ul, ol) {
+			margin-bottom: 0.5rem;
+		}
+		& > ul {
+			list-style: disc outside;
+			margin-left: 1rem;
+		}
+		& img {
+			margin: 0;
+			max-height: 32rem;
+			width: auto;
+		}
+
+		& figcaption {
+			font-style: italic;
+			text-align: center;
+		}
+
+		& blockquote {
+			padding-left: 1rem;
+			border-left: 2px var(--dividerStroke) solid;
+		}
+
+		& > :has(> :is(img, figure)) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 16px;
+		}
+		& > :is(ul, ol).nolist {
+			list-style: none;
+			margin-left: 0;
+		}
+	}
+}
+
+@utility nolist {
+	.content > &:is(ul, ol) {
+		list-style: none;
+		margin-left: 0;
+	}
+}
+
+@utility notopmargin {
+	main:has(> &) {
+		margin-top: 0;
+	}
+}
 
 @layer base {
 	* {
@@ -85,86 +190,4 @@
 	/* * {
 		outline: 1px solid red;
 	} */
-}
-
-@layer components {
-	.content {
-		line-height: 1.85rem;
-	}
-	.content > :is(h1, h2, h3, h4, h5, h6) {
-		margin-bottom: 0.6rem;
-	}
-	.content > :not(h1, h2, h3, h4, h5, h6) {
-		margin-bottom: 1.6rem;
-	}
-	.content > :has(+ hr) {
-		margin-bottom: 1rem;
-	}
-	.content > hr {
-		margin-bottom: 1rem;
-	}
-	.content > :has(+ ul, ol) {
-		margin-bottom: 0.5rem;
-	}
-	.content > ul {
-		list-style: disc outside;
-		margin-left: 1rem;
-	}
-	.content img {
-		margin: 0;
-		max-height: 32rem;
-		width: auto;
-	}
-
-	.content figcaption {
-		font-style: italic;
-		text-align: center;
-	}
-
-	.content blockquote {
-		padding-left: 1rem;
-		border-left: 2px var(--dividerStroke) solid;
-	}
-
-	.content > :has(> :is(img, figure)) {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 16px;
-	}
-
-	.nav-selected::after {
-		display: block;
-		content: '';
-		width: 16px;
-		height: 4px;
-		background: var(--accentFill);
-		border-radius: 9999px;
-	}
-	.nav-selected-vertical {
-		margin-left: -12px;
-	}
-	.nav-selected-vertical::before {
-		display: block;
-		content: '';
-		width: 4px;
-		height: 1.2rem;
-		margin-right: 8px;
-		background: var(--accentFill);
-		border-radius: 9999px;
-	}
-	.card {
-		@apply rounded-control border border-card-stroke bg-card-fill;
-	}
-}
-
-@layer utilities {
-	.content > :is(ul, ol).nolist {
-		list-style: none;
-		margin-left: 0;
-	}
-
-	main:has(> .notopmargin) {
-		@apply mt-0;
-	}
 }

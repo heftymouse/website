@@ -34,3 +34,15 @@ const { minimal, class: classes } = Astro.props;
 		}
 	</ul>
 </nav>
+<style>
+	.nav-selected {
+		&::after {
+		display: block;
+		content: '';
+		width: 16px;
+		height: 4px;
+		background: var(--accentFill);
+		border-radius: 9999px;
+		}
+	}
+</style>
