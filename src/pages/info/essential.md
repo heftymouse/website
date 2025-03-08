@@ -49,6 +49,9 @@ The title says it all. What a premise and what amazing delivery.
 [Zenbleed writeup](https://lock.cmpxchg8b.com/zenbleed.html)  
 A surprisingly accessible explanation of a critical microcode vulnerability that made me realize that the interface of modern CPUs are so far removed from their internal workings.
 
+[When you browse Instagram and find former Australian Prime Minister Tony Abbott's passport number](https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram/)  
+An incredibly written OSINT journey. The writing style is second to none.
+
 ## Science and Engineering
 
 [Designing a simple analog kick drum from scratch](https://youtu.be/yz37Yz315eU)  
