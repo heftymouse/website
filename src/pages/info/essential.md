@@ -47,7 +47,7 @@ A detailed chronicle on the world of concurrency in .NET until today and how asy
 The title says it all. What a premise and what amazing delivery.
 
 [Zenbleed writeup](https://lock.cmpxchg8b.com/zenbleed.html)  
-A surprisingly accessible explanation of a critical microcode vulnerability that made me realize that the interface of modern CPUs are so far removed from their internal workings.
+A surprisingly accessible explanation of a critical microcode vulnerability that made me realize how far removed the internal workings of modern CPUs are from their programming interface.
 
 [When you browse Instagram and find former Australian Prime Minister Tony Abbott's passport number](https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram/)  
 An incredibly written OSINT journey. The writing style is second to none.
@@ -74,7 +74,7 @@ A lovely video on the intersection of art and functionality in a feature of the 
 [Segmented Displays by Posy](https://youtu.be/RTB5XhjbgZA)  
 A video about esoteric hardware but it's an ART EXPERIENCE.
 
-# Philosophical
+## Philosophical
 
 Everything in this section has granted me new dimensions of thinking in ways I use every single day. I won't put explanations on these, but everything in this section is unequivocally worth reading.
 
@@ -90,7 +90,7 @@ Everything in this section has granted me new dimensions of thinking in ways I u
 
 [Please Commit More Blatant Academic Fraud](https://jacobbuckman.com/2021-05-29-please-commit-more-blatant-academic-fraud/)
 
-# Miscellaneous
+## Miscellaneous
 
 [Fieggen's Shoelace Site](https://fieggen.com/shoelace/index.htm)  
 This is one of the first 'indie web' sites I discovered as a kid. One single guy who's been around since the dawn of the internet with a website dedicated to shoelaces (among so many other things), what could be be better? I have been an Ian Knot user for a decade now.
@@ -107,4 +107,5 @@ Some of the best content on the web. Astonishingly high-quality interactive expl
 [Cicada 3301: An Internet Mystery](https://youtu.be/I2O7blSSzpI)  
 A classic video on a classic internet phenomenon.
 
-[Gas powered electric guitar by Mattias Krantz](https://youtu.be/p39v4Fkr9U)
+[Gas powered electric guitar by Mattias Krantz](https://youtu.be/p39v4Fkr9U)  
+Insane journey
