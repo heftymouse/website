@@ -108,4 +108,4 @@ Some of the best content on the web. Astonishingly high-quality interactive expl
 A classic video on a classic internet phenomenon.
 
 [Gas powered electric guitar by Mattias Krantz](https://youtu.be/p39v4Fkr9U)  
-Insane journey
+Insane journey to build the only guitar that deserves to play Highway to Hell.
