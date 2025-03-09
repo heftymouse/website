@@ -60,6 +60,9 @@ Using analog electronics to make sounds is awesome.
 [The Banach-Tarski Paradox](https://youtu.be/s86-Z-CbaHA)  
 One of Vsauce's most popular videos, for good reason.
 
+[Essence of linear algebra by 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)  
+Watching 3Blue1Brown is like putting on a pair of glasses but those glasses turn everything into a vector. This is the most intuitive way to learn linear algebra on the internet, an essential skill for a programmer or general-purpose nerd. Related is [horsehistory](https://interconnected.org/home/2021/06/16/horsehistory).
+
 [SSC collider series by BobbyBroccoli](https://youtu.be/ivVzGpznw1U)  
 A series of videos that dive deep into the interplay of science and politics that led to the failure of America's Superconducting Super Collider.
 
