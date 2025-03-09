@@ -7,7 +7,7 @@ title: Essential Media
 
 This is a collection of what I'd like to call my essential reading or viewing. These are blog posts and videos that have stuck with me, sometimes for years, that I constantly send to other people.
 
-If you're discovering any of these for the first time, have something you think I'll like, or just think I'm cool for my preferences, [contact me!](/) I'd love to hear from you.
+If you're discovering any of these for the first time, have something you think I'll like, or just think I'm cool for my list, [contact me!](/) I'd love to hear from you.
 
 ## Software
 
@@ -33,7 +33,7 @@ Makes you think long and hard about the viral nature of async.
 "There are only two kinds of languages: the ones people complain about and the ones nobody uses" - *Bjarne Stroustrup*
 
 [The Anatomy Of A Running Program](https://www.rfleury.com/p/demystifying-debuggers-part-2-the)  
-A crash course into what a process on your computer even means.
+A crash course in what a process on your computer even means.
 
 [Joe Duffy's Midori series](https://joeduffyblog.com/2015/11/03/blogging-about-midori/)  
 The canonical source of information about Midori, the research language/compiler/OS by Microsoft, which explored some fascinating and extremely ahead of its time ideas about the future of all three.
