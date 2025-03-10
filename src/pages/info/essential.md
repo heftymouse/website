@@ -52,6 +52,9 @@ A surprisingly accessible explanation of a critical microcode vulnerability that
 [When you browse Instagram and find former Australian Prime Minister Tony Abbott's passport number](https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram/)  
 An incredibly written OSINT journey. The writing style is second to none.
 
+[Modding the Gulf of Mexico Back into Google Maps](https://youtu.be/F5m2JxplnXk)
+A deep dive into the internals of a uniquely complex web app and a primer for how to approach hooking into it.
+
 ## Science and Engineering
 
 [Designing a simple analog kick drum from scratch](https://youtu.be/yz37Yz315eU)  
