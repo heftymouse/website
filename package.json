@@ -37,6 +37,5 @@
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"typescript": "^5.7.2",
 		"wrangler": "^3.99.0"
-	},
-	"packageManager": "pnpm@9.0.0-alpha.0+sha512.262710a014302cb381911ff876e76a3ffdf83a048c63fe8896818392d3ec0be2fe0481bc7be8602931291762a479322664c2369bc83e85d3c42e699b6ba6a55e"
+	}
 }
