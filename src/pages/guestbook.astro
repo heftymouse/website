@@ -20,8 +20,8 @@ const runtime = Astro.locals.runtime;
 const turso = createClient({
 	url: runtime.env.TURSO_URI,
 	authToken: runtime.env.TURSO_TOKEN
-})
-const txn = await turso.transaction("write")
+});
+const txn = await turso.transaction('write');
 
 function sanitize(input: string) {
 	return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -62,15 +62,14 @@ if (
 			await txn.execute({
 				sql: `INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`,
 				args: [anon ? '(anon)' : name, timestamp, url, message]
-			})
+			});
 		}
 	}
 }
 
 const result = (await txn.execute('SELECT * FROM entries ORDER BY timestamp DESC'))
 	.rows as unknown as Entry[] | null;
-console.log(result?.map(e => e.message.replaceAll('\r', '').replaceAll('\n', '')))
-await txn.commit()
+await txn.commit();
 ---
 
 <BaseLayout title="Guestbook">
@@ -117,12 +116,22 @@ await txn.commit()
 								<h2 class="text-h4">{e.name}</h2>
 							</a>
 						) : (
-							<h2 class="row-start-1 text-h4">{e.name}</h2>
+							<h2 class="text-h4 row-start-1">{e.name}</h2>
 						)}
 						<span class="row-start-1 justify-self-end text-neutral-500 dark:text-neutral-400">
 							{formatDate(new Date(e.timestamp))}
 						</span>
-						{e.message && <p>{e.message}</p>}
+						{
+							e.message && 
+							<div>
+								{e.message.split(/(?:\r)*\n/).map((x) => (
+									<>
+										<span>{x}</span>
+										<br>
+									</>
+								))}
+							</div>
+						}
 					</li>
 				))
 			}
