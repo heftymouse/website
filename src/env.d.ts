@@ -5,6 +5,8 @@ interface Env {
 	NODE_ENV: 'production' | 'development' | null;
 	WEBHOOK_URL: string;
 	TURNSTILE_SECRET_KEY: string;
+	TURSO_URI: string;
+	TURSO_TOKEN: string;
 	DB: D1Database;
 }
 

@@ -5,6 +5,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { postGuestbookWebhook } from '../lib/discord';
 import { formatDate } from '../lib/date';
 import { verifyChallenge } from '../lib/turnstile';
+import { createClient } from '@libsql/client';
 
 interface Entry {
 	name: string;
@@ -15,6 +16,11 @@ interface Entry {
 
 const req = Astro.request;
 const runtime = Astro.locals.runtime;
+
+const turso = createClient({
+	url: runtime.env.TURSO_URI,
+	authToken: runtime.env.TURSO_TOKEN
+})
 
 function sanitize(input: string) {
 	return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -52,15 +58,16 @@ if (
 				req.headers.get('User-Agent') ?? 'Unavailable'
 			);
 			// CREATE TABLE entries (name TEXT, timestamp INTEGER, url TEXT, message TEXT)
-			await runtime.env.DB.prepare(`INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`)
-				.bind(anon ? '(anon)' : name, timestamp, url, message)
-				.run();
+			await turso.execute({
+				sql: `INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`,
+				args: [anon ? '(anon)' : name, timestamp, url, message]
+			})
 		}
 	}
 }
 
-const result = (await runtime.env.DB.prepare('SELECT * FROM entries ORDER BY timestamp DESC').all())
-	.results as unknown as Entry[] | null;
+const result = (await turso.execute('SELECT * FROM entries ORDER BY timestamp DESC'))
+	.rows as unknown as Entry[] | null;
 ---
 
 <BaseLayout title="Guestbook">
