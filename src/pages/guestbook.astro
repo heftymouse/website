@@ -21,6 +21,7 @@ const turso = createClient({
 	url: runtime.env.TURSO_URI,
 	authToken: runtime.env.TURSO_TOKEN
 })
+const txn = await turso.transaction("write")
 
 function sanitize(input: string) {
 	return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -58,7 +59,7 @@ if (
 				req.headers.get('User-Agent') ?? 'Unavailable'
 			);
 			// CREATE TABLE entries (name TEXT, timestamp INTEGER, url TEXT, message TEXT)
-			await turso.execute({
+			await txn.execute({
 				sql: `INSERT INTO entries VALUES (?1, ?2, ?3, ?4)`,
 				args: [anon ? '(anon)' : name, timestamp, url, message]
 			})
@@ -66,8 +67,10 @@ if (
 	}
 }
 
-const result = (await turso.execute('SELECT * FROM entries ORDER BY timestamp DESC'))
+const result = (await txn.execute('SELECT * FROM entries ORDER BY timestamp DESC'))
 	.rows as unknown as Entry[] | null;
+console.log(result?.map(e => e.message.replaceAll('\r', '').replaceAll('\n', '')))
+await txn.commit()
 ---
 
 <BaseLayout title="Guestbook">
