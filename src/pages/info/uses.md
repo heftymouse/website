@@ -22,7 +22,7 @@ My previous laptop and current home server, from back when you could reliably ex
 
 This is a boring phone, in the best way possible. It doesn't have amazing specs or crazy features, but it has an incredibly clean, if sometimes buggy, Android experience, updates as soon as they come out for as long as it's supported, and once Google drops support for it, it's the easiest phone to install a custom ROM on.
 The occasional Pixel goodies like Magic Eraser (without Google One) and Circle to search are also super useful. It's also a phone you can actually hold unlike many of today's behemoths.
-Last but absolutely not least, the camera is genuinely as good as everyone says it is - no wonder it won MKBHD's blind smartphone camera test. Google may not be a leader in today's LLM race, but they've been doing AI where it matters for as long as it's been a thing.
+Last but absolutely not least, the camera is genuinely as good as everyone says it is - no wonder it won MKBHD's blind smartphone camera test.
 
 ### Lumia 650
 
@@ -30,13 +30,9 @@ I'm not sure why I have this. I barely use it. It's an awesome device though. It
 
 ## Audio
 
-### Moondrop Chu 2
+### Tanchjim ONE DSP
 
-An excellent pair of IEMS for sub-₹2000. It has a solid build and sounds exquisite. My only (mild) issue is the lack of inline volume controls and mic, but I can't complain for the price, and the cable is detachable anyways. The dreaded channel imbalance problem from most metal bodied IEMs is still there, but the filters are super easy to replace, and more importantly, available on Headphone Zone. I had the Chu 1 as well, but I had to stop using them because of channel imbalance, and because had a very sharp sound signature that would give me a headache after a while.
-
-### Venture Electronics Abigail Pro
-
-Good USB-C DAC, a bit chunky but works great.
+I lost my previous Moondrop Chu 2 when it fell out of my bag's side pocket while I was outside, likely into an open gutter. I replaced it with the Tanchjim ONE DSP, a sub-₹2000 bullet-style IEM (regular earphones with extra steps?). It sounds great and is incredibly tiny and lightweight - you can slip it into your pocket and completely forget it's there. It also comes with an inline mic, though it's nigh-unusable since there's loud static if the cable is coiled in the wrong way. The experience is less premium than the Chu, but it's not bad by any means.
 
 ## Media
 
