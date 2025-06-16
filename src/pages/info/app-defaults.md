@@ -20,7 +20,7 @@ This was inspired by [polarhive](https://polarhive.net/blog/app-defaults), in tu
 - 🌐 Browser - Edge
 - 💬 Chat - Discord, Whatsapp, Telegram, Google Pay
 - 🔖 Bookmarks - Notion, [Shrish's](https://shrishdeshpande.com) DMs
-- 📑 Read It Later - I just read it right now 💪 (actually Omnivore)
+- 📑 Read It Later - I just read it right now 💪
 - 🔠 Font - Inter, Manrope, Public Sans
 - 📝 Plaintext Editing - VSCode, micro
 - 📜 Word Processing - HTML (actually!), Markdown, occasionally LaTeX
