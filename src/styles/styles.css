@@ -65,6 +65,10 @@
 			list-style: disc outside;
 			margin-left: 1rem;
 		}
+		& > ol {
+			list-style: decimal outside;
+			margin-left: 1rem;
+		}
 		& img {
 			margin: 0;
 			max-height: 32rem;
