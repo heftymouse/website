@@ -1,6 +1,6 @@
 ---
 title: Raytracer book in F#
-description: That was a weekend and a half
+description: RTX On.
 date: 2025-06-17
 ---
 
