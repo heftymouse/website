@@ -66,4 +66,4 @@ The fact that I was using `h ** 2f` instead of `h * h` was a massive performance
 
 ## Closing Thoughts
 
-You can find the source code for this at [heftymouse/raytracer](https://github.com/heftymouse/raytracer). This was a fun little journey and I'm glad to finally get tick this off my to-do. On to Crafting Interpreters next!
+You can find the source code for this at [heftymouse/raytracer](https://github.com/heftymouse/raytracer). This was a fun little journey and I'm glad to finally tick this off my to-do. On to Crafting Interpreters next!
