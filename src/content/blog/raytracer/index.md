@@ -1,6 +1,6 @@
 ---
 title: Raytracer book in F#
-description: That was a weekend and a half
+description: RTX On.
 date: 2025-06-17
 ---
 
@@ -62,8 +62,8 @@ let c = oc.LengthSquared() - this.Radius ** 2f
 let d = h ** 2f - a * c
 ```
 
-The fact that I was using `h ** 2f` instead of `h * h` was a massive performance problem somehow. I figured this would be a special case that would be optimized internally, or that it wouldn't make a huge difference either way, but apparently this really mattered. Changing this one operator made the final render go from 34 minutes on my computer to 7 minutes. That's insane.
+The fact that I was using `h ** 2f` instead of `h * h` was a massive performance problem somehow. I figured this would be a special case that would be optimized internally, or that it wouldn't make a huge difference either way, but apparently this really mattered. Changing this one operator made the final render go from 34 minutes on my computer to 5 and a half minutes. That's insane.
 
 ## Closing Thoughts
 
-You can find the source code for this at [heftymouse/raytracer](https://github.com/heftymouse/raytracer). This was a fun little journey and I'm glad to finally get tick this off my to-do. On to Crafting Interpreters next!
+You can find the source code for this at [heftymouse/raytracer](https://github.com/heftymouse/raytracer). This was a fun little journey and I'm glad to finally tick this off my to-do. On to Crafting Interpreters next!
