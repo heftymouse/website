@@ -3,6 +3,8 @@ layout: '@/layouts/ContentLayout.astro'
 title: ASEB Timetable Privacy Policy
 ---
 
+# ASEB Timetable Privacy Policy
+
 Last updated: 2025-07-06  
 Contact email: [hello@heftymouse.me](mailto:hello@heftymouse.me)
 
