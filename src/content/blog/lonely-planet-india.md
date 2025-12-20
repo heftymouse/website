@@ -24,8 +24,9 @@ Hell yeah. I love me some yuppie bars.
 Many of them are, unsurprisingly, closed, though there's a surprising number of names and locations I recognize. I looked up some of the names online to see what happened to them and ended up digging up some gold:
 
 - NASA: a trendy space-themed bar. From the book:
-> NASA is a trippy place decked out like a spaceship. Its laser shows may mess with your buzz.
-I found a [Bangalore Mirror article](https://bangaloremirror.indiatimes.com/bangalore/cover-story/iconic-pub-nasa-is-first-casualty-of-11-30-pm-deadline/articleshow/21760631.cms) lamenting its closure due to financial woes. The Nandos that was set to replace it in the article doesn't exist either any more.
+    > NASA is a trippy place decked out like a spaceship. Its laser shows may mess with your buzz.  
+
+    I found a [Bangalore Mirror article](https://bangaloremirror.indiatimes.com/bangalore/cover-story/iconic-pub-nasa-is-first-casualty-of-11-30-pm-deadline/articleshow/21760631.cms) lamenting its closure due to financial woes. The Nandos that was set to replace it in the article doesn't exist either any more.
 
 - Purple Haze was a nightclub themed after Jimi Hendrix (who wrote a song called Purple Haze). Here's a [clip from the Unboxing Bengaluru podcast](https://www.youtube.com/watch?v=BKxsePyoCTM) from the CEO of KIA airport on this place.
 
