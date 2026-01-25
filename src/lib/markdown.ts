@@ -18,7 +18,7 @@ export async function renderPost(content: string, root: URL, collection: string,
 		.use(makeLinksAbsolute, root)
 		.use(addTitleAndCaption)
 		.use(fixImages, collection, slug)
-		.use(rehypeSanitize)
+		// .use(rehypeSanitize)
 		.use(rehypeStringify)
 		.process(content);
 
