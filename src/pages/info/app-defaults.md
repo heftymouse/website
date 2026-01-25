@@ -9,8 +9,7 @@ This was inspired by [polarhive](https://polarhive.net/blog/app-defaults), in tu
 
 - 📨 Mail Client - Thunderbird on desktop, Gmail on Android
 - 📮 Mail Server - Gmail, Outlook, Zoho Mail
-- 📝 Notes - Notion
-- ✅ To-Do - Notion
+- ✅ To-Do - Google Keep
 - 📷 Photo Shooting - GCam on Pixel 6a
 - 🟦 Photo Management - Google Photos (maybe [immich](https://github.com/immich-app/immich) eventually?)
 - 📆 Calendar - I don't plan things
@@ -23,8 +22,8 @@ This was inspired by [polarhive](https://polarhive.net/blog/app-defaults), in tu
 - 📑 Read It Later - I just read it right now 💪
 - 🔠 Font - Inter, Manrope, Public Sans
 - 📝 Plaintext Editing - VSCode, micro
-- 📜 Word Processing - HTML (actually!), Markdown, occasionally LaTeX
+- 📜 Word Processing - HTML (actually!), Markdown, [Typst](https://typst.app) occasionally LaTeX
 - 📈 Spreadsheets - Excel
-- 📊 Presentations - PowerPoint
+- 📊 Presentations - PowerPoint, [Gamma](https://gamma.app) (it's a really nice slide editor if you ignore the AI slop)
 - 🎵 Music - Apple Music
 - 🔐 Password Management - Bitwarden w/ Vaultwarden

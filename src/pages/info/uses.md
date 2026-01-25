@@ -34,6 +34,12 @@ I'm not sure why I have this. I barely use it. It's an awesome device though. It
 
 I lost my previous Moondrop Chu 2 when it fell out of my bag's side pocket while I was outside, likely into an open gutter. I replaced it with the Tanchjim ONE DSP, a sub-₹2000 bullet-style IEM (regular earphones with extra steps?). It sounds great and is incredibly tiny and lightweight - you can slip it into your pocket and completely forget it's there. It also comes with an inline mic, though it's nigh-unusable since there's loud static if the cable is coiled in the wrong way. The experience is less premium than the Chu, but it's not bad by any means.
 
+## Peripherals
+
+### MCHOSE G3 V2
+
+The MCHOSE G3 V2 is a cheaper, much lighter, and all around better clone of the venerable Logitech G305 wireless gaming mouse. I've found it to perfectly serve my lightweight use. The shape works well for my not-huge (17cm length) hands. It feels very well-built overall, my only complaint being that the side buttons are too springy and have a lot of travel (though it has a nice click at the end). Wireless connection works well over both Bluetooth and 2.4G, with the minor papercut of only remembering one Bluetooth device. It also follows the current much-appreciated trend of having a Web HID-based configuration utility.
+
 ## Media
 
 ### Apple Music
@@ -80,6 +86,4 @@ My developer choices are pretty boring so I'll just mention names here. You prob
 - Postgres, SQLite
 - ASP.NET Core and Actix for backend
 
-I don't use an ORM, I like writing SQL by hand and knowing that my queries perform adequately, as well as being able to use unique database features without having to 'drop down' from the abstraction. Object mappers, though, are something I'm a huge fan of, since parsing an SQL result is just difficult busy work.
-
-I'm also very interested in graph databases. It feels like a way more natural way to model most problems than a normalized SQL database.
+My choice of Postgres is very much a no-brainer default - I would very much like to have a better handle on the subtleties of different databases at scale in the future. I'm also very interested in graph databases. It feels like a way more natural way to model many problems than a normalized SQL database.

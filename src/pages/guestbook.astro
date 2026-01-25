@@ -78,7 +78,7 @@ await txn.commit();
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	</Fragment>
 
-	<div class="w-full md:min-w-[36rem]">
+	<div class="w-full md:min-w-xl">
 		<h1 class="mb-2">Guestbook</h1>
 		<form id="guestbookForm" method="post" class="card mb-4 grid w-full items-start gap-1 p-3">
 			<input class="p-1" type="text" name="name" placeholder="Name" maxlength="64" required />
@@ -124,7 +124,7 @@ await txn.commit();
 						{
 							e.message && 
 							<div>
-								{e.message.split(/(?:\r)*\n/).map((x) => (
+								{e.message.split("\r\n").map((x) => (
 									<>
 										<span>{x}</span>
 										<br>
