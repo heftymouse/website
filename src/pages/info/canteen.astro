@@ -31,7 +31,7 @@ const rows = (
 		) : (
 			<ul class="nolist flex flex-col">
 				{rows.map((entry) => (
-					<li class="py-8 border-b last:border-0 border-b-divider-stroke">
+					<li class="py-8 first:pt-0 last:pb-0 border-b last:border-0 border-b-divider-stroke">
 						<time class="block text-neutral-500 dark:text-neutral-400 mb-1">
 							{formatDate(new Date(entry.timestamp), true)}
 						</time>
