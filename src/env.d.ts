@@ -8,6 +8,9 @@ interface Env {
 	TURSO_URI: string;
 	TURSO_TOKEN: string;
 	DB: D1Database;
+	DISCORD_APP_ID: string;
+	DISCORD_PUBLIC_KEY: string;
+	DISCORD_BOT_TOKEN: string;
 }
 
 type Runtime = import('@astrojs/cloudflare').Runtime<Env>;

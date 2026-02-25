@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import { addTitleAndCaption } from './src/lib/markdown';
@@ -9,7 +8,6 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
 	site: 'https://heftymouse.me',
 	integrations: [
-		mdx(),
 		sitemap()
 	],
 	markdown: {

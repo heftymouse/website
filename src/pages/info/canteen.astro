@@ -1,0 +1,44 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { createClient } from '@libsql/client';
+import { formatDate } from '@/lib/date';
+
+interface CanteenEntry {
+	timestamp: number;
+	content: string;
+}
+
+const turso = createClient({
+	url: Astro.locals.runtime.env.TURSO_URI,
+	authToken: Astro.locals.runtime.env.TURSO_TOKEN
+});
+
+const rows = (
+	await turso.execute('SELECT * FROM canteen_log ORDER BY timestamp DESC')
+).rows as unknown as CanteenEntry[];
+---
+
+<BaseLayout title="Canteen Log">
+	<h1 class="mb-2">Canteen Log</h1>
+	<p class="mb-8">
+		A running log of stuff I've gotten from my college canteen.
+	</p>
+	{
+		rows.length === 0 ? (
+			<p class="text-neutral-500">Nothing logged yet.</p>
+		) : (
+			<ul class="nolist flex flex-col">
+				{rows.map((entry) => (
+					<li class="py-8 border-b last:border-0 border-b-divider-stroke">
+						<time class="block text-neutral-500 dark:text-neutral-400 mb-1">
+							{formatDate(new Date(entry.timestamp), true)}
+						</time>
+						<p>{entry.content}</p>
+					</li>
+				))}
+			</ul>
+		)
+	}
+</BaseLayout>
