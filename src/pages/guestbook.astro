@@ -124,12 +124,9 @@ await txn.commit();
 						{
 							e.message && 
 							<div>
-								{e.message.split("\r\n").map((x) => (
-									<>
-										<span>{x}</span>
-										<br>
-									</>
-								))}
+								{e.message.split("\r\n").map((x) => 
+									x != "" ? <p>{x}</p> : <br>
+								)}
 							</div>
 						}
 					</li>

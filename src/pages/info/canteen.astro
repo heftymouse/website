@@ -35,7 +35,11 @@ const rows = (
 						<time class="block text-neutral-500 dark:text-neutral-400 mb-1">
 							{formatDate(new Date(entry.timestamp), true)}
 						</time>
-						<p>{entry.content}</p>
+						<p>
+                            {entry.content.split('\n').map(e => 
+                                e != "" ? <p>{e}</p> : <br>
+                            )}
+                        </p>
 					</li>
 				))}
 			</ul>
