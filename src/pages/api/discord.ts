@@ -33,10 +33,9 @@ export async function POST({ request, locals }: APIContext) {
 		interaction.type === InteractionType.APPLICATION_COMMAND &&
 		interaction.data.type === ApplicationCommandType.MESSAGE
 	) {
-		const targetId = interaction.data.target_id;
-		const message = interaction.data.resolved.messages[targetId];
+		const messageId: string = interaction.data.target_id;
+		const message = interaction.data.resolved.messages[messageId];
 		const content: string = message.content;
-		const messageTimestamp: number = new Date(message.timestamp).getTime();
 
 		if (!content.trim()) {
 			return Response.json({
@@ -45,11 +44,12 @@ export async function POST({ request, locals }: APIContext) {
 			});
 		}
 
-		// CREATE TABLE canteen_log (timestamp INTEGER, content TEXT)
+		// CREATE TABLE canteen_log (message_id TEXT PRIMARY KEY, content TEXT)
 		const turso = createClient({ url: env.TURSO_URI, authToken: env.TURSO_TOKEN });
 		await turso.execute({
-			sql: `INSERT INTO canteen_log (timestamp, content) VALUES (?1, ?2)`,
-			args: [messageTimestamp, content]
+			sql: `INSERT INTO canteen_log (message_id, content) VALUES (?1, ?2)
+			      ON CONFLICT(message_id) DO UPDATE SET content = excluded.content`,
+			args: [messageId, content]
 		});
 
 		return Response.json({

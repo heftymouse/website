@@ -121,14 +121,7 @@ await txn.commit();
 						<span class="row-start-1 justify-self-end text-neutral-500 dark:text-neutral-400">
 							{formatDate(new Date(e.timestamp))}
 						</span>
-						{
-							e.message && 
-							<div>
-								{e.message.split("\r\n").map((x) => 
-									x != "" ? <p>{x}</p> : <br>
-								)}
-							</div>
-						}
+						{e.message && <p class="whitespace-pre-wrap">{e.message}</p>}
 					</li>
 				))
 			}
