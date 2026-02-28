@@ -6,8 +6,12 @@ import { createClient } from '@libsql/client';
 import { formatDate } from '@/lib/date';
 
 interface CanteenEntry {
-	timestamp: number;
+	message_id: string;
 	content: string;
+}
+
+function snowflakeToTimestamp(snowflake: string): number {
+	return Number((BigInt(snowflake) >> 22n) + 1420070400000n);
 }
 
 const turso = createClient({
@@ -16,7 +20,7 @@ const turso = createClient({
 });
 
 const rows = (
-	await turso.execute('SELECT * FROM canteen_log ORDER BY timestamp DESC')
+	await turso.execute('SELECT * FROM canteen_log ORDER BY CAST(message_id AS INTEGER) DESC')
 ).rows as unknown as CanteenEntry[];
 ---
 
@@ -33,13 +37,9 @@ const rows = (
 				{rows.map((entry) => (
 					<li class="py-8 first:pt-0 last:pb-0 border-b last:border-0 border-b-divider-stroke">
 						<time class="block text-neutral-500 dark:text-neutral-400 mb-1">
-							{formatDate(new Date(entry.timestamp), true)}
+							{formatDate(new Date(snowflakeToTimestamp(entry.message_id)), true)}
 						</time>
-						<p>
-                            {entry.content.split('\n').map(e => 
-                                e != "" ? <p>{e}</p> : <br>
-                            )}
-                        </p>
+						<p class="whitespace-pre-wrap">{entry.content}</p>
 					</li>
 				))}
 			</ul>
