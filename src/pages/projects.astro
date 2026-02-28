@@ -1,6 +1,7 @@
 ---
 import ProjectCard from '@/components/ProjectCard.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import GooglePlay from "@/components/GooglePlay.svg"
 ---
 
 <BaseLayout title="Projects">
@@ -24,6 +25,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 			</ProjectCard>
 		</li>
 		<li>
+			<ProjectCard
+				name="ASEB Timetable"
+				github="amritadottown/tiemtable"
+				time="February 2025 - Present"
+			>
+				An Android app for students of my university campus to put their timetable in a home screen widget.
+				Also the first thing I made with an actually large userbase.
+				<a href="https://play.google.com/store/apps/details?id=town.amrita.timetable">
+					<GooglePlay class="w-40 mt-4" />
+				</a>
+			</ProjectCard>
+		</li>
+		<li>
 			<ProjectCard name="Phobos" github="heftymouse/Phobos" time="July 2022 - Present">
 				A browser for <a href="https://geminiprotocol.net">Geminispace</a>, a lightweight document
 				protocol, made in WinUI 3 and C#.
@@ -35,8 +49,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 						/>
 						<img
 							src="https://get.microsoft.com/images/en-us%20dark.svg"
-							width="160"
-							class="mt-2"
+							class="w-40 mt-4"
 							alt="Get it from the Microsoft Store"
 						/>
 					</picture>

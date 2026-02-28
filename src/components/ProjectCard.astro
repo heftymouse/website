@@ -16,8 +16,8 @@ const { name, time, link, github } = Astro.props;
 	<div class="col-start-2 row-start-3 flex flex-row items-center justify-end gap-3 md:row-start-1">
 		{
 			link && (
-				<a href={link} class:list={{ hidden: !link }}>
-					<LinkIcon class="mt-[2px] w-[1.2rem] text-text" />
+				<a href={link}>
+					<LinkIcon class="mt-0.5 w-[1.2rem] text-text" />
 				</a>
 			)
 		}
