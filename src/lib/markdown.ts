@@ -1,7 +1,6 @@
 import { visit } from 'unist-util-visit';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeSanitize from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import { unified } from 'unified';
 import type { Root, Element as HastElement } from 'hast';
@@ -18,7 +17,6 @@ export async function renderPost(content: string, root: URL, collection: string,
 		.use(makeLinksAbsolute, root)
 		.use(addTitleAndCaption)
 		.use(fixImages, collection, slug)
-		// .use(rehypeSanitize)
 		.use(rehypeStringify)
 		.process(content);
 

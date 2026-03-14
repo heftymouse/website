@@ -30,3 +30,5 @@ if (res.ok) {
 	console.error(`Failed to register command (${res.status}):`, err);
 	process.exit(1);
 }
+
+export {}
