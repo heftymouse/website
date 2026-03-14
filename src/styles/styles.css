@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './variables.css';
 
 @theme {
 	--radius-control: 4px;
